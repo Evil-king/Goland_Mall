@@ -68,7 +68,7 @@ func GameDetails(gameCode string) []*vo.GameInfoDetailsVo {
 }
 
 //投注项开关
-func MathOddsFlag(params []*model.BettingMathOddsFlgDto) string {
+func MathOddsFlag(params []*dto.BettingMathOddsFlgDto) string {
 	var affected int
 	//遍历切片
 	for i := 0; i < len(params); i++ {
@@ -76,6 +76,28 @@ func MathOddsFlag(params []*model.BettingMathOddsFlgDto) string {
 		db := utils.DbHelper
 		affected = int(db.Model(&model.GameBetting{}).Where("id = ?", obj.BettingId).Update("betting_status", obj.Flag).RowsAffected)
 	}
+	if affected > 0 {
+		return "SUCCESS"
+	}
+	return "FAIL"
+}
+
+//游戏计划
+func GameSchedulerList() []*model.GameScheduler {
+	var gameSchedulerList []*model.GameScheduler
+	db := utils.DbHelper
+	db.Model(&model.GameScheduler{}).Find(&gameSchedulerList)
+	return gameSchedulerList
+}
+
+//更新游戏计划
+func GameSchedulerUpdate(gameSchedulerUpdate dto.GameSchedulerDto)  string{
+	db := utils.DbHelper
+	affected := db.Model(&model.GameScheduler{}).Where("game_code = ?",gameSchedulerUpdate.GameCode).
+		Update("draw_stime",gameSchedulerUpdate.DrawStartTime).
+		Update("draw_etime",gameSchedulerUpdate.DrawEndTime).
+		Update("overall_time",gameSchedulerUpdate.OverallTime).
+		Update("seal_time",gameSchedulerUpdate.SealTime).RowsAffected
 	if affected > 0 {
 		return "SUCCESS"
 	}

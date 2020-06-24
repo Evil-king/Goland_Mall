@@ -17,3 +17,8 @@ type UpdateGameInfoDto struct {
 	GameCode string
 	GameStatus string
 }
+
+type BettingMathOddsFlgDto struct {
+	BettingId string
+	Flag string
+}

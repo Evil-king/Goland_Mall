@@ -33,5 +33,13 @@ func main() {
 		v1.POST("/updateMathOddsFlagBatch",controller.MathOddsFlag)
 	}
 
+	v2 := router.Group("/gameScheduler")
+	{
+		//获取游戏计划列表
+		v2.GET("/list",controller.GameSchedulerList)
+		//获取游戏计划列表
+		v2.GET("/update",controller.GameSchedulerUpdate)
+	}
+
 	router.Run(":8000")
 }

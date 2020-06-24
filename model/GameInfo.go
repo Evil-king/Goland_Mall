@@ -1,7 +1,7 @@
 package model
 
 import (
-	"math/big"
+	"github.com/shopspring/decimal"
 	"time"
 )
 
@@ -21,7 +21,7 @@ type GameBetting struct {
 	Id int `gorm:"PRIMARY_KEY"` //主键ID
 	BettingName string
 	BettingStatus string
-	MathOdds big.Rat
+	MathOdds decimal.Decimal
 	CreateTime time.Time
 	ModifyTime time.Time
 	Attribute string
@@ -59,7 +59,34 @@ type GameItems struct {
 	ModifyTime time.Time
 }
 
-type BettingMathOddsFlgDto struct {
-	BettingId string
-	Flag string
+//游戏计划实体
+type GameScheduler struct {
+	Id int `gorm:"PRIMARY_KEY"`
+	GameName string `json:"gameName"`
+	GameCode string `json:"gameCode"`
+	ModelCode string `json:"modelCode"`
+	DrawDay string `json:"drawDay"`
+	DrawStime string `json:"drawStime"`
+	DrawEtime string `json:"drawEtime"`
+	OverAllTime int `json:"overallTime"`
+	BetTime int `json:"betTime"`
+	SealTime int `json:"sealTime"`
+	CreateTime time.Time
+	ModifyTime time.Time
 }
+
+//开奖结果
+type LotteryResults struct {
+	Id int `gorm:"PRIMARY_KEY"`
+	PeriodNum string
+	GameCode string
+	DrawTime string
+	WinningResults string
+	OutNumber string
+	status string
+	IsClose string
+	CreateTime time.Time
+	ModifyTime time.Time
+}
+
+
