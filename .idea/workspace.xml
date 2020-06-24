@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c180f1d4-716c-473a-8124-051dc552f132" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/game_center.sql" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="GOROOT" path="/usr/local/go" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GoLibraries">
+    <option name="indexEntireGoPath" value="false" />
+  </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -9,13 +25,89 @@
       </MavenGeneralSettings>
     </option>
   </component>
+  <component name="ProjectId" id="1dkvoOP7nfjoKRS8I7lpoXF40Fw" />
   <component name="ProjectViewState">
     <option name="abbreviatePackageNames" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
     <property name="go.import.settings.migrated" value="true" />
+    <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  </component>
+  <component name="RunManager">
+    <configuration name="go build Goland_Mall" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="Game" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <filePath value="$PROJECT_DIR$/main.go" />
+      <package value="Goland_Mall" />
+      <directory value="$PROJECT_DIR$/" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Build.go build Goland_Mall" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c180f1d4-716c-473a-8124-051dc552f132" name="Default Changelist" comment="" />
+      <created>1592982079494</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1592982079494</updated>
+      <workItem from="1592982080918" duration="735000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VgoProject">
+    <integration-enabled>true</integration-enabled>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="944" y="659" key="#GOROOT" timestamp="1592982525721">
+      <screen x="0" y="23" width="2560" height="1349" />
+    </state>
+    <state x="944" y="659" key="#GOROOT/0.23.2560.1349/-1792.343.1792.1097@0.23.2560.1349" timestamp="1592982525721" />
+    <state width="2062" height="281" key="GridCell.Tab.0.bottom" timestamp="1592982555155">
+      <screen x="0" y="23" width="2560" height="1349" />
+    </state>
+    <state width="2062" height="281" key="GridCell.Tab.0.bottom/0.23.2560.1349/-1792.343.1792.1097@0.23.2560.1349" timestamp="1592982555155" />
+    <state width="2062" height="281" key="GridCell.Tab.0.center" timestamp="1592982555154">
+      <screen x="0" y="23" width="2560" height="1349" />
+    </state>
+    <state width="2062" height="281" key="GridCell.Tab.0.center/0.23.2560.1349/-1792.343.1792.1097@0.23.2560.1349" timestamp="1592982555154" />
+    <state width="2062" height="281" key="GridCell.Tab.0.left" timestamp="1592982555154">
+      <screen x="0" y="23" width="2560" height="1349" />
+    </state>
+    <state width="2062" height="281" key="GridCell.Tab.0.left/0.23.2560.1349/-1792.343.1792.1097@0.23.2560.1349" timestamp="1592982555154" />
+    <state width="2062" height="281" key="GridCell.Tab.0.right" timestamp="1592982555155">
+      <screen x="0" y="23" width="2560" height="1349" />
+    </state>
+    <state width="2062" height="281" key="GridCell.Tab.0.right/0.23.2560.1349/-1792.343.1792.1097@0.23.2560.1349" timestamp="1592982555155" />
   </component>
 </project>
