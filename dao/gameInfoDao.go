@@ -9,11 +9,14 @@ import (
 )
 
 //获取游戏列表数据
-func PostGameInfoList(dto dto.GameInfoDto) ([]*model.GameInfo, error) {
+func GameInfoList(dto dto.GameInfoDto) (model.Page, error) {
 	//基于gorm的写法
 	var gameInfoList []*model.GameInfo
 
 	db := utils.DbHelper
+
+	//设置一个变量接收总记录数
+	var totalRecord int64
 
 	//全部查询并且带条件
 	if dto.GameName != "" {
@@ -25,8 +28,11 @@ func PostGameInfoList(dto dto.GameInfoDto) ([]*model.GameInfo, error) {
 	if dto.GameStatus != "" {
 		db = db.Where("game_status = ?", dto.GameStatus)
 	}
-	db.Find(&gameInfoList)
-	return gameInfoList, nil
+	db.Limit(dto.PageSize).Offset((dto.CurrentPage - 1) * dto.PageSize).Find(&gameInfoList)
+	//获取总数
+	db.Model(model.GameInfo{}).Count(&totalRecord)
+
+	return model.OperatorData(gameInfoList, totalRecord, dto.CurrentPage, dto.PageSize), nil
 }
 
 //新增游戏
@@ -72,32 +78,10 @@ func MathOddsFlag(params []*dto.BettingMathOddsFlgDto) string {
 	var affected int
 	//遍历切片
 	for i := 0; i < len(params); i++ {
-		obj:=params[i]
+		obj := params[i]
 		db := utils.DbHelper
 		affected = int(db.Model(&model.GameBetting{}).Where("id = ?", obj.BettingId).Update("betting_status", obj.Flag).RowsAffected)
 	}
-	if affected > 0 {
-		return "SUCCESS"
-	}
-	return "FAIL"
-}
-
-//游戏计划
-func GameSchedulerList() []*model.GameScheduler {
-	var gameSchedulerList []*model.GameScheduler
-	db := utils.DbHelper
-	db.Model(&model.GameScheduler{}).Find(&gameSchedulerList)
-	return gameSchedulerList
-}
-
-//更新游戏计划
-func GameSchedulerUpdate(gameSchedulerUpdate dto.GameSchedulerDto)  string{
-	db := utils.DbHelper
-	affected := db.Model(&model.GameScheduler{}).Where("game_code = ?",gameSchedulerUpdate.GameCode).
-		Update("draw_stime",gameSchedulerUpdate.DrawStartTime).
-		Update("draw_etime",gameSchedulerUpdate.DrawEndTime).
-		Update("overall_time",gameSchedulerUpdate.OverallTime).
-		Update("seal_time",gameSchedulerUpdate.SealTime).RowsAffected
 	if affected > 0 {
 		return "SUCCESS"
 	}

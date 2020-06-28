@@ -10,3 +10,10 @@ type GameInfoDetailsVo struct {
 	Id int `json:"bettingId"`
 	BettingStatus string `json:"bettingStatus"`
 }
+
+type LotteryResultsListVo struct {
+	PeriodNum string
+	DrawTime string
+	WinningResults string
+	OutNumber string
+}

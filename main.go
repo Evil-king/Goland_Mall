@@ -41,5 +41,11 @@ func main() {
 		v2.GET("/update",controller.GameSchedulerUpdate)
 	}
 
+	v3 := router.Group("/lotteryResults")
+	{
+		//获取游戏计划列表
+		v3.POST("/list",controller.GetLotteryResultList)
+	}
+
 	router.Run(":8000")
 }
