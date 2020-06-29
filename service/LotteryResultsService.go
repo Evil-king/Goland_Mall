@@ -5,6 +5,7 @@ import (
 	"Goland_Mall/model"
 	"Goland_Mall/serializer"
 	"Goland_Mall/utils"
+	"log"
 	"math/rand"
 	"strconv"
 	"time"
@@ -32,7 +33,7 @@ func DrawOperator(gameCode string) serializer.Result {
 			//step2、根据不同规则算出最终的开奖结果
 			resultList := CalculationWiningResults(strList)
 			//step3、更新表
-			updateLotteryResult(lotteryResults, gameScheduler, strList, resultList)
+			updateLotteryResult(lotteryResults, gameScheduler, strList, resultList, "false", "close")
 			//step4、组装开奖结果、发送mq消息给注单
 		} else {
 			return serializer.FailMsg("当前时间不在游戏开放时间之内，不允许开奖")
@@ -43,7 +44,7 @@ func DrawOperator(gameCode string) serializer.Result {
 		//step2、根据不同规则算出最终的开奖结果
 		winningResults := CalculationWiningResults(outNumber)
 		//step3、更新表
-		updateLotteryResult(lotteryResults, gameScheduler, outNumber, winningResults)
+		updateLotteryResult(lotteryResults, gameScheduler, outNumber, winningResults, "true", "open")
 		//step4、组装开奖结果、发送mq消息给注单
 	}
 	return serializer.Success()
@@ -61,12 +62,12 @@ func CreatePeriodNum(gameCode string) serializer.Result {
 		//期数规则：gameCode+200503+0001
 		periodNum = utils.GetPeriodNum("true", periodNum, gameCode)
 		//写入表中
-		InsertData(gameCode,lotteryResults.PeriodNum,nil,nil,"true")
+		InsertData(gameCode, lotteryResults.PeriodNum, nil, nil, "true")
 		return serializer.Success()
 	}
 	utils.AddPeriodNum(lotteryResults.PeriodNum, gameCode)
 	//写入表中
-	InsertData(gameCode,lotteryResults.PeriodNum,nil,nil,"true")
+	InsertData(gameCode, lotteryResults.PeriodNum, nil, nil, "true")
 	return serializer.Success()
 }
 
@@ -164,6 +165,28 @@ func IsEffectiveDateStr(nowTime string, sTime string, eTime string) bool {
 	return st.Before(nt) && et.After(nt)
 }
 
-func updateLotteryResult(results model.LotteryResults, scheduler model.GameScheduler, strList []int, resultList []string) {
-
+func updateLotteryResult(lotteryResults model.LotteryResults, scheduler model.GameScheduler, outNumber []int, winningResults []string, status string, flag string) {
+	//获取上期的期号
+	lastPeriodNum := utils.LastIssuePeriodNum(lotteryResults.PeriodNum, lotteryResults.GameCode)
+	log.Println("lastIssuePeriodNum={}", lastPeriodNum)
+	//获取上一期开奖内容
+	lastIssueLotteryResults := dao.SelectLastIssue(lotteryResults.PeriodNum)
+	var lastIssueDrawTime int64
+	if lastIssueLotteryResults.IsEmpty() {
+		lastIssueDrawTime = time.Now().UnixNano() / 1e6
+	} else if lastIssueLotteryResults.CreateTime.UnixNano()/1e6+int64(scheduler.OverAllTime*1000) < time.Now().UnixNano()/1e6 {
+		lastIssueDrawTime = time.Now().UnixNano() / 1e6
+	} else {
+		lastIssueDrawTime = lastIssueLotteryResults.CreateTime.UnixNano()/1e6 + int64(scheduler.OverAllTime*1000)
+	}
+	log.Println("lastIssueDrawTime={}", lastIssueDrawTime)
+	newLotteryResult := model.LotteryResults{
+		DrawTime:       time.Unix(lastIssueDrawTime/1e9, 0),
+		WinningResults: utils.SliceToString(winningResults),
+		OutNumber:      utils.SliceToString(outNumber),
+		IsClose:        flag,
+		Status:         status,
+		ModifyTime:     time.Now(),
+	}
+	dao.UpdateLotteryByParams(newLotteryResult)
 }

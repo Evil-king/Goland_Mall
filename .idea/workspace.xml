@@ -20,17 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c180f1d4-716c-473a-8124-051dc552f132" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/service/GameSchedulerService.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/notUtil.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/gameInfoController.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/gameInfoController.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/gameSchedulerController.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/gameSchedulerController.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dao/gameInfoDao.go" beforeDir="false" afterPath="$PROJECT_DIR$/dao/gameInfoDao.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dao/gameSchedulerDao.go" beforeDir="false" afterPath="$PROJECT_DIR$/dao/gameSchedulerDao.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dao/lotteryResultsDao.go" beforeDir="false" afterPath="$PROJECT_DIR$/dao/lotteryResultsDao.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/GameInfo.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/GameInfo.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/serializer/Result.go" beforeDir="false" afterPath="$PROJECT_DIR$/serializer/Result.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/LotteryResultsService.go" beforeDir="false" afterPath="$PROJECT_DIR$/service/LotteryResultsService.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/uuid.go" beforeDir="false" afterPath="$PROJECT_DIR$/utils/uuid.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vo/GameInfoVo.go" beforeDir="false" afterPath="$PROJECT_DIR$/vo/GameInfoVo.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -339,29 +337,29 @@
     </state>
     <state x="926" y="455" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.2560.1349/-1792.282.1792.1097@0.23.2560.1349" timestamp="1593313316457" />
     <state x="926" y="455" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.2560.1349/-1792.343.1792.1097@0.23.2560.1349" timestamp="1592986853157" />
-    <state width="1615" height="396" key="GridCell.Tab.0.bottom" timestamp="1593417113688">
-      <screen x="0" y="23" width="2560" height="1349" />
+    <state width="1615" height="396" key="GridCell.Tab.0.bottom" timestamp="1593446524682">
+      <screen x="0" y="23" width="1792" height="1029" />
     </state>
-    <state width="1615" height="396" key="GridCell.Tab.0.bottom/0.23.1792.1029@0.23.1792.1029" timestamp="1593357066238" />
-    <state width="1615" height="396" key="GridCell.Tab.0.bottom/0.23.2560.1349/-1792.282.1792.1097@0.23.2560.1349" timestamp="1593417113688" />
+    <state width="1615" height="396" key="GridCell.Tab.0.bottom/0.23.1792.1029@0.23.1792.1029" timestamp="1593446524682" />
+    <state width="1615" height="396" key="GridCell.Tab.0.bottom/0.23.2560.1349/-1792.282.1792.1097@0.23.2560.1349" timestamp="1593438818612" />
     <state width="1750" height="280" key="GridCell.Tab.0.bottom/0.23.2560.1349/-1792.343.1792.1097@0.23.2560.1349" timestamp="1593042379818" />
-    <state width="1615" height="396" key="GridCell.Tab.0.center" timestamp="1593417113687">
-      <screen x="0" y="23" width="2560" height="1349" />
+    <state width="1615" height="396" key="GridCell.Tab.0.center" timestamp="1593446524681">
+      <screen x="0" y="23" width="1792" height="1029" />
     </state>
-    <state width="1615" height="396" key="GridCell.Tab.0.center/0.23.1792.1029@0.23.1792.1029" timestamp="1593357066237" />
-    <state width="1615" height="396" key="GridCell.Tab.0.center/0.23.2560.1349/-1792.282.1792.1097@0.23.2560.1349" timestamp="1593417113687" />
+    <state width="1615" height="396" key="GridCell.Tab.0.center/0.23.1792.1029@0.23.1792.1029" timestamp="1593446524681" />
+    <state width="1615" height="396" key="GridCell.Tab.0.center/0.23.2560.1349/-1792.282.1792.1097@0.23.2560.1349" timestamp="1593438818611" />
     <state width="1750" height="280" key="GridCell.Tab.0.center/0.23.2560.1349/-1792.343.1792.1097@0.23.2560.1349" timestamp="1593042379817" />
-    <state width="1615" height="396" key="GridCell.Tab.0.left" timestamp="1593417113686">
-      <screen x="0" y="23" width="2560" height="1349" />
+    <state width="1615" height="396" key="GridCell.Tab.0.left" timestamp="1593446524680">
+      <screen x="0" y="23" width="1792" height="1029" />
     </state>
-    <state width="1615" height="396" key="GridCell.Tab.0.left/0.23.1792.1029@0.23.1792.1029" timestamp="1593357066236" />
-    <state width="1615" height="396" key="GridCell.Tab.0.left/0.23.2560.1349/-1792.282.1792.1097@0.23.2560.1349" timestamp="1593417113686" />
+    <state width="1615" height="396" key="GridCell.Tab.0.left/0.23.1792.1029@0.23.1792.1029" timestamp="1593446524680" />
+    <state width="1615" height="396" key="GridCell.Tab.0.left/0.23.2560.1349/-1792.282.1792.1097@0.23.2560.1349" timestamp="1593438818611" />
     <state width="1750" height="280" key="GridCell.Tab.0.left/0.23.2560.1349/-1792.343.1792.1097@0.23.2560.1349" timestamp="1593042379817" />
-    <state width="1615" height="396" key="GridCell.Tab.0.right" timestamp="1593417113687">
-      <screen x="0" y="23" width="2560" height="1349" />
+    <state width="1615" height="396" key="GridCell.Tab.0.right" timestamp="1593446524681">
+      <screen x="0" y="23" width="1792" height="1029" />
     </state>
-    <state width="1615" height="396" key="GridCell.Tab.0.right/0.23.1792.1029@0.23.1792.1029" timestamp="1593357066238" />
-    <state width="1615" height="396" key="GridCell.Tab.0.right/0.23.2560.1349/-1792.282.1792.1097@0.23.2560.1349" timestamp="1593417113687" />
+    <state width="1615" height="396" key="GridCell.Tab.0.right/0.23.1792.1029@0.23.1792.1029" timestamp="1593446524681" />
+    <state width="1615" height="396" key="GridCell.Tab.0.right/0.23.2560.1349/-1792.282.1792.1097@0.23.2560.1349" timestamp="1593438818612" />
     <state width="1750" height="280" key="GridCell.Tab.0.right/0.23.2560.1349/-1792.343.1792.1097@0.23.2560.1349" timestamp="1593042379818" />
     <state width="500" height="445" key="SwitcherDM" timestamp="1593357456172">
       <screen x="0" y="23" width="1792" height="1029" />
@@ -371,9 +369,9 @@
       <screen x="0" y="23" width="1792" height="1029" />
     </state>
     <state x="688" y="464" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1792.1029@0.23.1792.1029" timestamp="1593355946378" />
-    <state x="755" y="396" width="670" height="676" key="search.everywhere.popup" timestamp="1593327001824">
+    <state x="755" y="396" width="670" height="676" key="search.everywhere.popup" timestamp="1593435877429">
       <screen x="0" y="23" width="2560" height="1349" />
     </state>
-    <state x="755" y="396" width="670" height="676" key="search.everywhere.popup/0.23.2560.1349/-1792.282.1792.1097@0.23.2560.1349" timestamp="1593327001824" />
+    <state x="755" y="396" width="670" height="676" key="search.everywhere.popup/0.23.2560.1349/-1792.282.1792.1097@0.23.2560.1349" timestamp="1593435877429" />
   </component>
 </project>

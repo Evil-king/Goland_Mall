@@ -1,6 +1,9 @@
 package vo
 
-import "github.com/shopspring/decimal"
+import (
+	"github.com/shopspring/decimal"
+	"time"
+)
 
 type GameInfoDetailsVo struct {
 	GroupName string `json:"groupName"`
@@ -13,7 +16,7 @@ type GameInfoDetailsVo struct {
 
 type LotteryResultsListVo struct {
 	PeriodNum string
-	DrawTime string
+	DrawTime time.Time
 	WinningResults string
 	OutNumber string
 }

@@ -51,7 +51,7 @@ func SelectPeriodNumByIsClose(gameCode string) model.LotteryResults {
 
 func InsertData(gameCode string, periodNum string, outNumber []int, winningResults []string, flag string) {
 	lotteryResults := &model.LotteryResults{
-		Id:        0000,
+		Id:        utils.IdWork(),
 		GameCode:  gameCode,
 		PeriodNum: periodNum,
 		DrawTime:  nil,
@@ -65,3 +65,16 @@ func InsertData(gameCode string, periodNum string, outNumber []int, winningResul
 	utils.DbHelper.Create(&lotteryResults)
 }
 
+func SelectLastIssue(periodNum string) model.LotteryResults  {
+	var lotteryResults model.LotteryResults
+	db := utils.DbHelper
+	db.Model(&model.LotteryResults{}).Where("period_num = ?", periodNum).Find(&lotteryResults)
+	return lotteryResults
+}
+
+func UpdateLotteryByParams(results model.LotteryResults) int {
+	//更新
+	db := utils.DbHelper
+	affected := db.Model(model.LotteryResults{}).Update(results).RowsAffected
+	return int(affected)
+}

@@ -8,7 +8,7 @@ import (
 
 //游戏信息实体
 type GameInfo struct {
-	Id int  `gorm:"PRIMARY_KEY"` //主键ID
+	Id int64  `gorm:"PRIMARY_KEY"` //主键ID
 	GameName string  //游戏名称
 	ModelCode string //模型编码
 	GameCode string  //游戏编码
@@ -19,7 +19,7 @@ type GameInfo struct {
 
 //投注项实体
 type GameBetting struct {
-	Id int `gorm:"PRIMARY_KEY"` //主键ID
+	Id int64 `gorm:"PRIMARY_KEY"` //主键ID
 	BettingName string
 	BettingStatus string
 	MathOdds decimal.Decimal
@@ -31,7 +31,7 @@ type GameBetting struct {
 
 //游戏分组实体
 type GameGroup struct {
-	Id int `gorm:"PRIMARY_KEY"` //主键ID
+	Id int64 `gorm:"PRIMARY_KEY"` //主键ID
 	GroupName string
 	ModelCode string
 	GroupStatus string
@@ -41,7 +41,7 @@ type GameGroup struct {
 
 //游戏模型实体
 type GameModel struct {
-	Id int `gorm:"PRIMARY_KEY"` //主键ID
+	Id int64 `gorm:"PRIMARY_KEY"` //主键ID
 	ModelName string
 	ModelCode string
 	ModelStatus string
@@ -51,7 +51,7 @@ type GameModel struct {
 
 //游戏玩法实体
 type GameItems struct {
-	Id int `gorm:"PRIMARY_KEY"` //主键ID
+	Id int64 `gorm:"PRIMARY_KEY"` //主键ID
 	MethodName string
 	ModelCode string
 	GroupId int
@@ -62,7 +62,7 @@ type GameItems struct {
 
 //游戏计划实体
 type GameScheduler struct {
-	Id int `gorm:"PRIMARY_KEY"`
+	Id int64 `gorm:"PRIMARY_KEY"`
 	GameName string `json:"gameName"`
 	GameCode string `json:"gameCode"`
 	ModelCode string `json:"modelCode"`
@@ -81,10 +81,10 @@ func (gameScheduler GameScheduler) IsEmpty() bool {
 
 //开奖结果
 type LotteryResults struct {
-	Id int `gorm:"PRIMARY_KEY"`
+	Id int64 `gorm:"PRIMARY_KEY"`
 	PeriodNum string
 	GameCode string
-	DrawTime string
+	DrawTime time.Time
 	WinningResults string
 	OutNumber string
 	Status string

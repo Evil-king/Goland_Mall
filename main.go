@@ -2,12 +2,11 @@ package main
 
 import (
 	"Goland_Mall/controller"
-	"fmt"
 	"github.com/gin-gonic/gin"
-	"math/rand"
-	"strconv"
-	"time"
+	"sync"
 )
+
+var wg sync.WaitGroup
 
 func main() {
 	//conn := utils.RedisDefaultPool.Get()
@@ -17,154 +16,42 @@ func main() {
 	//}
 	//log.Println(result)
 
-	//AA2006210001
+	//ch := make(chan int)
+	//go recv(ch) // 启用goroutine从通道接收值
+	//ch <- 10
+	//fmt.Println("发送成功")
 
-	//str := time.Now().String()
-	//str2 := strings.Split(str," ")[0]
-	//str1 := strings.Replace(str2,"-","",-1)
-	//fmt.Println(str1)
-	//str3 :=str1[2:len(str1)]
-	//fmt.Println(str3)
-
-	//str := "AA2006210001"
-	//newStr := str[8:len(str)]
-	//fmt.Println(newStr)
-
-	//var timeLayoutStr = "2006-01-02"
-	//t:=time.Now()
-	//str := t.Format(timeLayoutStr)
-	//str1 :=strings.Replace(str,"-","",-1)[2:len(strings.Replace(str,"-","",-1))]
-	//fmt.Println(str1)
-
-	nums := generateRandomNumber(1, 11, 10)
-	strSlice :=CalculationWiningResults(nums)
-	fmt.Println(strSlice)
-	str := Trans(strSlice)
-	fmt.Println(str)
+	//channel 练习
+	//ch1 := make(chan int)
+	//ch2 := make(chan int)
+	//// 开启goroutine将0~100的数发送到ch1中
+	//go func() {
+	//	for i := 0; i <= 100; i++ {
+	//		ch1 <- i
+	//	}
+	//	close(ch1)
+	//}()
+	//// 开启goroutine从ch1中接收值，并将该值的平方发送到ch2中
+	//go func() {
+	//	for { //开死循环一直不停的取 直到ch1没有值则跳出死循环
+	//		i, ok := <-ch1
+	//		if !ok {
+	//			break
+	//		}
+	//		//并将该值的平方发送到ch2中
+	//		ch2 <- i * i
+	//	}
+	//	close(ch2)
+	//}()
+	//// 在主goroutine中从ch2中接收值打印
+	//for i := range ch2 { // 通道关闭后会退出for range循环
+	//	fmt.Println(i)
+	//}
 }
-
-//生成count个[start,end)结束的不重复的随机数
-func generateRandomNumber(start int, end int, count int) []int {
-	//范围检查
-	if end < start || (end-start) < count {
-		return nil
-	}
-	//存放结果的slice
-	nums := make([]int, 0)
-	//随机数生成器，加入时间戳保证每次生成的随机数不一样
-	r := rand.New(rand.NewSource(time.Now().UnixNano()))
-	for len(nums) < count {
-		//生成随机数
-		num := r.Intn((end - start)) + start
-		//查重
-		exist := false
-		for _, v := range nums {
-			if v == num {
-				exist = true
-				break
-			}
-		}
-		if !exist {
-			nums = append(nums, num)
-		}
-	}
-	return nums
-}
-
-func CalculationWiningResults(nums []int) []string {
-	lists := make([]string, 0)
-	var one, two, three, four, five, six, seven, eight, nine, ten, sum int
-	one = nums[0]
-	two = nums[1]
-	three = nums[2]
-	four = nums[3]
-	five = nums[4]
-	six = nums[5]
-	seven = nums[6]
-	eight = nums[7]
-	nine = nums[8]
-	ten = nums[9]
-	sum = one + ten
-	lists = append(lists, strconv.Itoa(sum))
-	if sum > 11 {
-		lists = append(lists, "大")
-	} else if sum <= 11 {
-		lists = append(lists, "小")
-	}
-	if sum%2 == 0 {
-		lists = append(lists, "双")
-	} else {
-		lists = append(lists, "单")
-	}
-	//1～5龙虎
-	if one > ten {
-		lists = append(lists, "龙")
-	} else {
-		lists = append(lists, "虎")
-	}
-	if two > nine {
-		lists = append(lists, "龙")
-	} else {
-		lists = append(lists, "虎")
-	}
-	if three > eight {
-		lists = append(lists, "龙")
-	} else {
-		lists = append(lists, "虎")
-	}
-	if four > seven {
-		lists = append(lists, "龙")
-	} else {
-		lists = append(lists, "虎")
-	}
-	if five > six {
-		lists = append(lists, "龙")
-	} else {
-		lists = append(lists, "虎")
-	}
-	return lists
-}
-
-func Trans(data interface{}) string {
-	var str string
-	if v,ok:=data.([]int);ok{
-		str += "["
-		for k, v := range v {
-			if k == 0 {
-				str = str + strconv.Itoa(v)
-			} else {
-				str = str + " " + strconv.Itoa(v)
-			}
-		}
-		str += "]"
-	} else if v,ok:=data.([]string);ok{
-		str += "["
-		for k, v := range v {
-			if k == 0 {
-				str = str + v
-			} else {
-				str = str + " " + v
-			}
-		}
-		str += "]"
-	}
-	return str
-}
-
-func TransToString(winningResults []string) string {
-	var str string
-	str += "["
-	for k, v := range winningResults {
-		if k == 0 {
-			str = str + v
-		} else {
-			str = str + " " + v
-		}
-	}
-	str += "]"
-	return str
-}
-
+//func recv(c chan int) {
+//	ret := <-c
+//	fmt.Println("接收成功", ret)
+//}
 
 func main1() {
 	router := gin.Default()
@@ -198,6 +85,12 @@ func main1() {
 		//获取游戏计划列表
 		v3.POST("/list", controller.GetLotteryResultList)
 	}
+	//// 定义一个cron运行器
+	//c := cron.New()
+	//// 定时5秒，每5秒执行print5
+	//c.AddFunc("*/5 * * * * *", dao.Print5)
+	//c.Start()
+	//select {}
 
 	router.Run(":8000")
 }

@@ -5,6 +5,7 @@ import (
 	"Goland_Mall/dto"
 	"Goland_Mall/model"
 	"Goland_Mall/serializer"
+	"Goland_Mall/utils"
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"time"
@@ -33,8 +34,7 @@ func CreateGameInfo(c *gin.Context) {
 		c.JSON(400, serializer.FailMsg("参数异常"))
 	}
 	gameInfo := &model.GameInfo{
-		//TODO 这里id要换成自动生成
-		Id:         1255444774531198909,
+		Id:         utils.IdWork(),
 		GameName:   createGameInfoDto.GameName,
 		GameCode:   createGameInfoDto.GameCode,
 		ModelCode:  createGameInfoDto.ModelCode,
