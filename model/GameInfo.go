@@ -2,6 +2,7 @@ package model
 
 import (
 	"github.com/shopspring/decimal"
+	"reflect"
 	"time"
 )
 
@@ -74,6 +75,9 @@ type GameScheduler struct {
 	CreateTime time.Time
 	ModifyTime time.Time
 }
+func (gameScheduler GameScheduler) IsEmpty() bool {
+	return reflect.DeepEqual(gameScheduler, GameScheduler{})
+}
 
 //开奖结果
 type LotteryResults struct {
@@ -83,10 +87,13 @@ type LotteryResults struct {
 	DrawTime string
 	WinningResults string
 	OutNumber string
-	status string
+	Status string
 	IsClose string
 	CreateTime time.Time
 	ModifyTime time.Time
+}
+func (lotteryResults LotteryResults) IsEmpty() bool {
+	return reflect.DeepEqual(lotteryResults, LotteryResults{})
 }
 
 type LotteryResultsDto struct {

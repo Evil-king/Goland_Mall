@@ -21,7 +21,7 @@ func PostGameInfoList(c *gin.Context) {
 	if err != nil {
 		c.JSON(400, serializer.Fail(nil, err))
 	}
-	c.JSON(200, serializer.Success(gameInfos, nil))
+	c.JSON(200, serializer.SuccessData(gameInfos))
 }
 
 //新增游戏
@@ -30,7 +30,7 @@ func CreateGameInfo(c *gin.Context) {
 	error := c.BindJSON(&createGameInfoDto)
 	if error != nil {
 		fmt.Printf("参数异常:%s", error.Error())
-		c.JSON(400, serializer.Success(nil, error))
+		c.JSON(400, serializer.FailMsg("参数异常"))
 	}
 	gameInfo := &model.GameInfo{
 		//TODO 这里id要换成自动生成
@@ -44,9 +44,9 @@ func CreateGameInfo(c *gin.Context) {
 	}
 	result := dao.CreateGameInfo(gameInfo)
 	if result == "SUCCESS" {
-		c.JSON(200, serializer.Success(result, nil))
+		c.JSON(200, serializer.SuccessData(result))
 	}
-	c.JSON(400, serializer.Success(result, nil))
+	c.JSON(400, serializer.FailMsg(""))
 }
 
 //游戏列表的基本信息
@@ -55,13 +55,13 @@ func UpdateGame(c *gin.Context) {
 	error := c.BindJSON(&updateGameInfo)
 	if error != nil {
 		fmt.Printf("参数异常:%s", error.Error())
-		c.JSON(400, serializer.Success(nil, error))
+		c.JSON(400, serializer.FailMsg("参数异常"))
 	}
 	result := dao.UpdateGameInfo(updateGameInfo.GameCode, updateGameInfo.GameStatus)
 	if result == "SUCCESS" {
-		c.JSON(200, serializer.Success(result, nil))
+		c.JSON(200, serializer.SuccessData(result))
 	}
-	c.JSON(400, serializer.Success(result, nil))
+	c.JSON(400, serializer.FailMsg(""))
 }
 
 //获取游戏详情
@@ -72,7 +72,7 @@ func GameDetails(c *gin.Context) {
 		fmt.Println("查询数据有误")
 		c.JSON(400, serializer.Fail("查询数据有误", nil))
 	}
-	c.JSON(200, serializer.Success(gameInfoDetailsList, nil))
+	c.JSON(200, serializer.SuccessData(gameInfoDetailsList))
 }
 
 //投注项开关
@@ -87,6 +87,6 @@ func MathOddsFlag(c *gin.Context) {
 	if result == "SUCCESS" {
 		c.JSON(400, serializer.Fail(result, nil))
 	}
-	c.JSON(200, serializer.Success(nil, nil))
+	c.JSON(200, serializer.Success())
 }
 

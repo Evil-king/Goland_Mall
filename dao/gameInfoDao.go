@@ -5,7 +5,6 @@ import (
 	"Goland_Mall/model"
 	"Goland_Mall/utils"
 	"Goland_Mall/vo"
-	"fmt"
 )
 
 //获取游戏列表数据
@@ -38,7 +37,6 @@ func GameInfoList(dto dto.GameInfoDto) (model.Page, error) {
 //新增游戏
 func CreateGameInfo(gameInfo *model.GameInfo) string {
 	affected := utils.DbHelper.Create(&gameInfo).RowsAffected
-	fmt.Println("affected=", affected)
 	if affected > 0 {
 		return "SUCCESS"
 	}

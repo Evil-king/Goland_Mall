@@ -4,9 +4,166 @@ import (
 	"Goland_Mall/dao"
 	"Goland_Mall/model"
 	"Goland_Mall/serializer"
+	"Goland_Mall/utils"
+	"math/rand"
+	"strconv"
+	"time"
 )
 
-func GetLotteryResultsList(dto *model.LotteryResultsDto) serializer.Result  {
+//获取开奖结果
+func GetLotteryResultsList(dto *model.LotteryResultsDto) serializer.Result {
 	result := dao.GetLotteryResultsList(dto)
-	return serializer.Success(result,nil)
+	return serializer.SuccessData(result)
+}
+
+func DrawOperator(gameCode string) serializer.Result {
+
+	var timeLayoutStr = "15:04"
+	ts := time.Now().Format(timeLayoutStr) //time转string
+	//通过gameCode获取游戏计划
+	gameScheduler := GetSchedulerByGameCode(gameCode)
+	//判断当前正在开的期号是否已经开奖
+	lotteryResults := dao.SelectPeriodNumByStatus(gameCode)
+
+	if "everyday" == gameScheduler.DrawDay && IsEffectiveDateStr(ts, gameScheduler.DrawStime, gameScheduler.DrawEtime) {
+		if "true" == lotteryResults.IsClose {
+			//step1、随机开出十个数
+			strList := generateRandomNumber(1, 11, 10)
+			//step2、根据不同规则算出最终的开奖结果
+			resultList := CalculationWiningResults(strList)
+			//step3、更新表
+			updateLotteryResult(lotteryResults, gameScheduler, strList, resultList)
+			//step4、组装开奖结果、发送mq消息给注单
+		} else {
+			return serializer.FailMsg("当前时间不在游戏开放时间之内，不允许开奖")
+		}
+	} else {
+		//step1、随机开出十个数
+		outNumber := generateRandomNumber(1, 11, 10)
+		//step2、根据不同规则算出最终的开奖结果
+		winningResults := CalculationWiningResults(outNumber)
+		//step3、更新表
+		updateLotteryResult(lotteryResults, gameScheduler, outNumber, winningResults)
+		//step4、组装开奖结果、发送mq消息给注单
+	}
+	return serializer.Success()
+}
+
+func CreatePeriodNum(gameCode string) serializer.Result {
+	//通过gameCode获取游戏计划
+	gameScheduler := GetSchedulerByGameCode(gameCode)
+	if gameScheduler.IsEmpty() {
+		panic("该游戏没有开奖计划")
+	}
+	lotteryResults := dao.SelectPeriodNumByIsClose(gameCode)
+	var periodNum string
+	if lotteryResults.IsEmpty() {
+		//期数规则：gameCode+200503+0001
+		periodNum = utils.GetPeriodNum("true", periodNum, gameCode)
+		//写入表中
+		InsertData(gameCode,lotteryResults.PeriodNum,nil,nil,"true")
+		return serializer.Success()
+	}
+	utils.AddPeriodNum(lotteryResults.PeriodNum, gameCode)
+	//写入表中
+	InsertData(gameCode,lotteryResults.PeriodNum,nil,nil,"true")
+	return serializer.Success()
+}
+
+func InsertData(gameCode string, periodNum string, outNumber []int, winningResults []string, flag string) {
+	dao.InsertData(gameCode, periodNum, outNumber, winningResults, flag)
+}
+
+//生成count个[start,end)结束的不重复的随机数
+func generateRandomNumber(start int, end int, count int) []int {
+	//范围检查
+	if end < start || (end-start) < count {
+		return nil
+	}
+	//存放结果的slice
+	nums := make([]int, 0)
+	//随机数生成器，加入时间戳保证每次生成的随机数不一样
+	r := rand.New(rand.NewSource(time.Now().UnixNano()))
+	for len(nums) < count {
+		//生成随机数
+		num := r.Intn((end - start)) + start
+		//查重
+		exist := false
+		for _, v := range nums {
+			if v == num {
+				exist = true
+				break
+			}
+		}
+		if !exist {
+			nums = append(nums, num)
+		}
+	}
+	return nums
+}
+
+func CalculationWiningResults(nums []int) []string {
+	lists := make([]string, 0)
+	var one, two, three, four, five, six, seven, eight, nine, ten, sum int
+	one = nums[0]
+	two = nums[1]
+	three = nums[2]
+	four = nums[3]
+	five = nums[4]
+	six = nums[5]
+	seven = nums[6]
+	eight = nums[7]
+	nine = nums[8]
+	ten = nums[9]
+	sum = one + ten
+	lists = append(lists, strconv.Itoa(sum))
+	if sum > 11 {
+		lists = append(lists, "大")
+	} else if sum <= 11 {
+		lists = append(lists, "小")
+	}
+	if sum%2 == 0 {
+		lists = append(lists, "双")
+	} else {
+		lists = append(lists, "单")
+	}
+	//1～5龙虎
+	if one > ten {
+		lists = append(lists, "龙")
+	} else {
+		lists = append(lists, "虎")
+	}
+	if two > nine {
+		lists = append(lists, "龙")
+	} else {
+		lists = append(lists, "虎")
+	}
+	if three > eight {
+		lists = append(lists, "龙")
+	} else {
+		lists = append(lists, "虎")
+	}
+	if four > seven {
+		lists = append(lists, "龙")
+	} else {
+		lists = append(lists, "虎")
+	}
+	if five > six {
+		lists = append(lists, "龙")
+	} else {
+		lists = append(lists, "虎")
+	}
+	return lists
+}
+
+func IsEffectiveDateStr(nowTime string, sTime string, eTime string) bool {
+	var timeLayoutStr = "15:04"
+	st, _ := time.ParseInLocation(timeLayoutStr, sTime, time.Local)   //string转time
+	et, _ := time.ParseInLocation(timeLayoutStr, eTime, time.Local)   //string转time
+	nt, _ := time.ParseInLocation(timeLayoutStr, nowTime, time.Local) //string转time
+	return st.Before(nt) && et.After(nt)
+}
+
+func updateLotteryResult(results model.LotteryResults, scheduler model.GameScheduler, strList []int, resultList []string) {
+
 }
