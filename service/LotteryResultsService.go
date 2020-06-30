@@ -31,9 +31,9 @@ func DrawOperator(gameCode string) serializer.Result {
 			//step1、随机开出十个数
 			outNumber := generateRandomNumber(1, 11, 10)
 			//step2、根据不同规则算出最终的开奖结果
-			winningResults := CalculationWiningResults(*outNumber)
+			winningResults := CalculationWiningResults(outNumber)
 			//step3、更新表
-			updateLotteryResult(lotteryResults, gameScheduler, *outNumber, *winningResults, "false", "close")
+			updateLotteryResult(lotteryResults, gameScheduler, outNumber, winningResults, "false", "close")
 			//step4、组装开奖结果、发送mq消息给注单
 		} else {
 			return serializer.FailMsg("当前时间不在游戏开放时间之内，不允许开奖")
@@ -42,9 +42,9 @@ func DrawOperator(gameCode string) serializer.Result {
 		//step1、随机开出十个数
 		outNumber := generateRandomNumber(1, 11, 10)
 		//step2、根据不同规则算出最终的开奖结果
-		winningResults := CalculationWiningResults(*outNumber)
+		winningResults := CalculationWiningResults(outNumber)
 		//step3、更新表
-		updateLotteryResult(lotteryResults, gameScheduler, *outNumber, *winningResults, "true", "open")
+		updateLotteryResult(lotteryResults, gameScheduler, outNumber, winningResults, "true", "open")
 		//step4、组装开奖结果、发送mq消息给注单
 	}
 	return serializer.Success()
@@ -78,7 +78,7 @@ func InsertData(gameCode string, periodNum string, outNumber []int, winningResul
 }
 
 //生成count个[start,end)结束的不重复的随机数
-func generateRandomNumber(start int, end int, count int) *[]int {
+func generateRandomNumber(start int, end int, count int) []int {
 	//范围检查
 	if end < start || (end-start) < count {
 		return nil
@@ -102,10 +102,10 @@ func generateRandomNumber(start int, end int, count int) *[]int {
 			nums = append(nums, num)
 		}
 	}
-	return &nums
+	return nums
 }
 
-func CalculationWiningResults(nums []int) *[]string {
+func CalculationWiningResults(nums []int) []string {
 	lists := make([]string, 0)
 	var one, two, three, four, five, six, seven, eight, nine, ten, sum int
 	one = nums[0]
@@ -156,7 +156,7 @@ func CalculationWiningResults(nums []int) *[]string {
 	} else {
 		lists = append(lists, "虎")
 	}
-	return &lists
+	return lists
 }
 
 func IsEffectiveDateStr(nowTime string, sTime string, eTime string) bool {
@@ -183,11 +183,11 @@ func updateLotteryResult(lotteryResults model.LotteryResults, scheduler model.Ga
 		lastIssueDrawTime = lastIssueLotteryResults.CreateTime.UnixNano()/1e6 + int64(scheduler.OverAllTime*1000)
 	}
 	log.Println("lastIssueDrawTime={}", lastIssueDrawTime)
-	x := time.Unix(lastIssueDrawTime/1e9, 0)
-	log.Println("time={}", x)
+	value, _ := time.ParseInLocation("2006-01-02 15:04:05", string(lastIssueDrawTime), time.Local)
+	log.Println("time={}", value)
 	newLotteryResult := model.LotteryResults{
 		Id:             lotteryResults.Id,
-		DrawTime:       x,
+		DrawTime:       value,
 		WinningResults: utils.SliceToString(winningResults),
 		OutNumber:      utils.SliceToString(outNumber),
 		IsClose:        flag,
