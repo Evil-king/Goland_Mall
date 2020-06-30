@@ -11,8 +11,8 @@ import (
 
 var (
 	//Db  *sql.DB
-	DbHelper  *gorm.DB
-	err error
+	DbHelper *gorm.DB
+	err      error
 )
 
 //func init() {
@@ -30,7 +30,7 @@ var (
 //}
 
 func init() {
-	DbHelper, err = gorm.Open("mysql", "root:123456@tcp(127.0.0.1:3306)/game_center?charset=utf8&parseTime=true")
+	DbHelper, err = gorm.Open("mysql", "root:123456@tcp(127.0.0.1:3306)/game_center?charset=utf8&parseTime=true&loc=Local")
 	if err != nil {
 		log.Fatal(err.Error())
 	}
@@ -41,6 +41,6 @@ func init() {
 	// 最大连接周期
 	DbHelper.DB().SetConnMaxLifetime(100 * time.Second)
 
-	DbHelper.LogMode(true) //打开日志
+	DbHelper.LogMode(true)       //打开日志
 	DbHelper.SingularTable(true) //框架自带生成的对象是表名的英文复数形式 这个属性是可以不让带复数
 }

@@ -26,7 +26,7 @@ func GetLotteryResultsList(dto *model.LotteryResultsDto) model.Page {
 	for i := 0; i < len(lotteryResultsList); i++ {
 		lotteryResults := vo.LotteryResultsListVo{
 			PeriodNum:      lotteryResultsList[i].PeriodNum,
-			DrawTime:       lotteryResultsList[i].DrawTime,
+			DrawTime:       &lotteryResultsList[i].DrawTime,
 			WinningResults: lotteryResultsList[i].WinningResults,
 			OutNumber:      lotteryResultsList[i].OutNumber,
 		}
@@ -51,21 +51,21 @@ func SelectPeriodNumByIsClose(gameCode string) model.LotteryResults {
 
 func InsertData(gameCode string, periodNum string, outNumber []int, winningResults []string, flag string) {
 	lotteryResults := &model.LotteryResults{
-		Id:        utils.IdWork(),
-		GameCode:  gameCode,
-		PeriodNum: periodNum,
-		DrawTime:  nil,
-		OutNumber: utils.SliceToString(outNumber),
+		Id:             utils.IdWork(),
+		GameCode:       gameCode,
+		PeriodNum:      periodNum,
+		DrawTime:       time.Time{},
+		OutNumber:      utils.SliceToString(outNumber),
 		WinningResults: utils.SliceToString(winningResults),
-		IsClose: flag,
-		Status: "waiting",
-		CreateTime: time.Now(),
-		ModifyTime: time.Now(),
+		IsClose:        flag,
+		Status:         "waiting",
+		CreateTime:     time.Now(),
+		ModifyTime:     time.Now(),
 	}
 	utils.DbHelper.Create(&lotteryResults)
 }
 
-func SelectLastIssue(periodNum string) model.LotteryResults  {
+func SelectLastIssue(periodNum string) model.LotteryResults {
 	var lotteryResults model.LotteryResults
 	db := utils.DbHelper
 	db.Model(&model.LotteryResults{}).Where("period_num = ?", periodNum).Find(&lotteryResults)
@@ -75,6 +75,6 @@ func SelectLastIssue(periodNum string) model.LotteryResults  {
 func UpdateLotteryByParams(results model.LotteryResults) int {
 	//更新
 	db := utils.DbHelper
-	affected := db.Model(model.LotteryResults{}).Update(results).RowsAffected
+	affected := db.Model(model.LotteryResults{}).Where("id = ?", results.Id).Update(results).RowsAffected
 	return int(affected)
 }

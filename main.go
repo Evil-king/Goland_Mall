@@ -2,13 +2,13 @@ package main
 
 import (
 	"Goland_Mall/controller"
+	"fmt"
 	"github.com/gin-gonic/gin"
-	"sync"
+	"github.com/robfig/cron"
+	"time"
 )
 
-var wg sync.WaitGroup
-
-func main() {
+func main1() {
 	//conn := utils.RedisDefaultPool.Get()
 	//result, err:=redis.String(conn.Do("get", "name"))
 	//if err != nil{
@@ -47,13 +47,18 @@ func main() {
 	//for i := range ch2 { // 通道关闭后会退出for range循环
 	//	fmt.Println(i)
 	//}
+
+	c := time.Unix(time.Now().UnixNano()/1e9, 0) //将秒转换为 time 类型
+	fmt.Println(c)
+
 }
+
 //func recv(c chan int) {
 //	ret := <-c
 //	fmt.Println("接收成功", ret)
 //}
 
-func main1() {
+func main() {
 	router := gin.Default()
 
 	router.Use(gin.Recovery())
@@ -85,12 +90,13 @@ func main1() {
 		//获取游戏计划列表
 		v3.POST("/list", controller.GetLotteryResultList)
 	}
-	//// 定义一个cron运行器
-	//c := cron.New()
-	//// 定时5秒，每5秒执行print5
-	//c.AddFunc("*/5 * * * * *", dao.Print5)
-	//c.Start()
-	//select {}
+	// 定义一个cron运行器
+	c := cron.New()
+	// 定时5秒，每5秒执行print5
+	c.AddFunc("0 0/1 * * * ?", controller.CreatePeriodNum)
+	c.AddFunc("*/12 * * * * ?", controller.DrawOperator)
+	c.Start()
+	select {}
 
 	router.Run(":8000")
 }
