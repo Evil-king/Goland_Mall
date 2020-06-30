@@ -25,6 +25,10 @@ func DrawOperator(gameCode string) serializer.Result {
 	gameScheduler := GetSchedulerByGameCode(gameCode)
 	//判断当前正在开的期号是否已经开奖
 	lotteryResults := dao.SelectPeriodNumByStatus(gameCode)
+	if lotteryResults.IsEmpty() {
+		//panic("没有开奖期号")
+		return serializer.FailMsg("没有开奖期号")
+	}
 	log.Println("lotteryResults", lotteryResults)
 	if "everyday" == gameScheduler.DrawDay && IsEffectiveDateStr(ts, gameScheduler.DrawStime, gameScheduler.DrawEtime) == false {
 		if "true" == lotteryResults.IsClose {
