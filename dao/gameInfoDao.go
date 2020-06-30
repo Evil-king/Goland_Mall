@@ -85,3 +85,17 @@ func MathOddsFlag(params []*dto.BettingMathOddsFlgDto) string {
 	}
 	return "FAIL"
 }
+
+func SelectGameInfoByGameCode(gameCode string) []*vo.GameInfoInnerAggregation {
+	var gameInfoInnerAggregation []*vo.GameInfoInnerAggregation
+	db := utils.DbHelper
+	db.Table("game_betting").Select("game_betting.math_odds,game_betting.betting_name,game_betting.betting_status,"+
+		"gg.group_name,gm.method_name,game_betting.id,gf.game_name,gf.game_code").
+		Joins("LEFT JOIN game_items as gm ON gm.id = game_betting.items_id").
+		Joins("LEFT JOIN game_group as gg ON gg.id=gm.group_id").
+		Joins("LEFT JOIN game_info gf ON gf.model_code = gg.model_code").
+		Joins("LEFT JOIN game_model m on m.model_code = gf.model_code").
+		Where("gf.game_code = ? and m.model_status = 'open'", gameCode).Find(&gameInfoInnerAggregation)
+
+	return gameInfoInnerAggregation
+}

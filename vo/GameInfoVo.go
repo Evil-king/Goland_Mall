@@ -16,7 +16,21 @@ type GameInfoDetailsVo struct {
 
 type LotteryResultsListVo struct {
 	PeriodNum      string
-	DrawTime       *time.Time
+	DrawTime       time.Time
 	WinningResults string
 	OutNumber      string
+}
+
+type GameInfoInnerAggregation struct {
+	GameName          string          `json:"gameName"`
+	ModelCode         string          `json:"modelCode"`
+	GameStatus        string          `json:"gameStatus"`
+	GroupName         string          `json:"groupName"`
+	MathOdds          decimal.Decimal `json:"mathOdds"`
+	BettingName       string          `json:"bettingName"`
+	BettingStatus     string          `json:"bettingStatus"`
+	BettingId         string          `json:"bettingId"`
+	MethodName        string          `json:"methodName"`
+	Attributes        string          `json:"attributes"`
+	LotteryAttributes string          `json:"lotteryAttributes"`
 }

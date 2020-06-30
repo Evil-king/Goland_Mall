@@ -3,6 +3,7 @@ module Goland_Mall
 go 1.14
 
 require (
+	github.com/apache/rocketmq-client-go/v2 v2.0.0 // indirect
 	github.com/bwmarrin/snowflake v0.3.0
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible // indirect
 	github.com/garyburd/redigo v1.6.0

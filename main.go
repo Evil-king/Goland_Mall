@@ -2,13 +2,11 @@ package main
 
 import (
 	"Goland_Mall/controller"
-	"fmt"
 	"github.com/gin-gonic/gin"
 	"github.com/robfig/cron"
-	"time"
 )
 
-func main1() {
+func main() {
 	//conn := utils.RedisDefaultPool.Get()
 	//result, err:=redis.String(conn.Do("get", "name"))
 	//if err != nil{
@@ -47,10 +45,6 @@ func main1() {
 	//for i := range ch2 { // 通道关闭后会退出for range循环
 	//	fmt.Println(i)
 	//}
-
-	c := time.Unix(time.Now().UnixNano()/1e9, 0) //将秒转换为 time 类型
-	fmt.Println(c)
-
 }
 
 //func recv(c chan int) {
@@ -58,7 +52,7 @@ func main1() {
 //	fmt.Println("接收成功", ret)
 //}
 
-func main() {
+func main1() {
 	router := gin.Default()
 
 	router.Use(gin.Recovery())
