@@ -183,7 +183,7 @@ func updateLotteryResult(lotteryResults model.LotteryResults, scheduler model.Ga
 		lastIssueDrawTime = lastIssueLotteryResults.CreateTime.UnixNano()/1e6 + int64(scheduler.OverAllTime*1000)
 	}
 	log.Println("lastIssueDrawTime={}", lastIssueDrawTime)
-	x := time.Unix(lastIssueDrawTime/1e9, 1)
+	x := time.Unix(lastIssueDrawTime/1000, 1)
 	log.Println("time={}", x)
 	newLotteryResult := model.LotteryResults{
 		Id:             lotteryResults.Id,
