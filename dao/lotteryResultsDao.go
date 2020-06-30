@@ -38,14 +38,14 @@ func GetLotteryResultsList(dto *model.LotteryResultsDto) model.Page {
 func SelectPeriodNumByStatus(gameCode string) model.LotteryResults {
 	var lotteryResults model.LotteryResults
 	db := utils.DbHelper
-	db.Model(&model.LotteryResults{}).Where("game_code = ?", gameCode).Find(&lotteryResults)
+	db.Model(&model.LotteryResults{}).Where("game_code = ? and status =?", gameCode, "waiting").Find(&lotteryResults)
 	return lotteryResults
 }
 
 func SelectPeriodNumByIsClose(gameCode string) model.LotteryResults {
 	var lotteryResults model.LotteryResults
 	db := utils.DbHelper
-	db.Model(&model.LotteryResults{}).Where("game_code = ? and status =?", gameCode, "waiting").Order("draw_time desc").Limit(1).Find(&lotteryResults)
+	db.Model(&model.LotteryResults{}).Where("game_code = ?", gameCode).Order("draw_time desc").Limit(1).Find(&lotteryResults)
 	return lotteryResults
 }
 
