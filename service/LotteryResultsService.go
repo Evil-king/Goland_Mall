@@ -8,6 +8,7 @@ import (
 	"log"
 	"math/rand"
 	"strconv"
+	"strings"
 	"time"
 )
 
@@ -198,12 +199,13 @@ func CalculationWiningResults(nums []int) []string {
 
 //判断当前时间是否在游戏计划时间之内
 func IsEffectiveDateStr(nowTime string, sTime string, eTime string) bool {
-	var timeLayoutStr = "15:04"
-	st, _ := time.ParseInLocation(timeLayoutStr, sTime, time.Local)   //string转time
-	et, _ := time.ParseInLocation(timeLayoutStr, eTime, time.Local)   //string转time
-	nt, _ := time.ParseInLocation(timeLayoutStr, nowTime, time.Local) //string转time
-	log.Println("判断时间是否在计划时间内", st.Before(nt) && et.After(nt))
-	return st.Before(nt) && et.After(nt)
+	//var timeLayoutStr = "15:04"
+	//st, _ := time.ParseInLocation(timeLayoutStr, sTime, time.Local)   //string转time
+	//et, _ := time.ParseInLocation(timeLayoutStr, eTime, time.Local)   //string转time
+	//nt, _ := time.ParseInLocation(timeLayoutStr, nowTime, time.Local) //string转time
+	//log.Println("判断时间是否在计划时间内", st.Before(nt) && et.After(nt))
+	log.Println("判断时间是否在计划时间内", strings.Compare(nowTime, sTime) >= 0 && strings.Compare(nowTime, eTime) <= 0)
+	return strings.Compare(nowTime, sTime) >= 0 && strings.Compare(nowTime, eTime) <= 0
 }
 
 //组装中奖结果
