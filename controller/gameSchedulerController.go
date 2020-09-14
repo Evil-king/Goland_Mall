@@ -1,28 +1,30 @@
 package controller
 
 import (
-	"Goland_Mall/dto"
-	"Goland_Mall/serializer"
-	"Goland_Mall/service"
+	"Game/common/dto"
+	"Game/common/serializer"
+	. "Game/service"
 	"github.com/gin-gonic/gin"
 )
 
+var gameSchedulerService  = &GameSchedulerService{}
+
 //开奖计划列表
-func GameSchedulerList(c *gin.Context)  {
-	result := service.GameSchedulerList()
-	c.JSON(200, result)
+func GameSchedulerList(c *gin.Context) {
+	result := gameSchedulerService.GameSchedulerList
+	serializer.Success(c, gin.H{"code": 200, "data": result}, "")
 }
 
 //更新开奖计划
-func GameSchedulerUpdate(c *gin.Context)  {
+func GameSchedulerUpdate(c *gin.Context) {
 	var gameSchedulerDto dto.GameSchedulerDto
 	error := c.BindJSON(&gameSchedulerDto)
 	if error != nil {
-		c.JSON(400, serializer.Fail(nil, error))
+		serializer.Fail(c, nil, error.Error())
 	}
-	result := service.GameSchedulerUpdate(gameSchedulerDto)
-	if result.Msg == "success" {
-		c.JSON(200, serializer.SuccessData(result))
+	flag := gameSchedulerService.GameSchedulerUpdate(gameSchedulerDto)
+	if flag {
+		serializer.Success(c, nil, "更新成功")
 	}
-	c.JSON(400, serializer.SuccessData(result))
+	serializer.Fail(c, nil, "更新失败")
 }

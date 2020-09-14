@@ -1,7 +1,7 @@
 package dao
 
 import (
-	"Goland_Mall/model"
+	"Game/model"
 	"fmt"
 	"testing"
 	"time"

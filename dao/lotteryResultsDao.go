@@ -1,13 +1,14 @@
 package dao
 
 import (
-	"Goland_Mall/model"
-	"Goland_Mall/utils"
-	"Goland_Mall/vo"
+	"Game/common/dto"
+	"Game/common/vo"
+	"Game/model"
+	"Game/utils"
 	"time"
 )
 
-func GetLotteryResultsList(dto *model.LotteryResultsDto) model.Page {
+func GetLotteryResultsList(dto *dto.LotteryResultsDto) model.Page {
 	var lotteryResultsList []*model.LotteryResults
 	var lotteryResultsListVo []*vo.LotteryResultsListVo
 	//设置一个变量接收总记录数
@@ -26,7 +27,7 @@ func GetLotteryResultsList(dto *model.LotteryResultsDto) model.Page {
 	for i := 0; i < len(lotteryResultsList); i++ {
 		lotteryResults := vo.LotteryResultsListVo{
 			PeriodNum:      lotteryResultsList[i].PeriodNum,
-			DrawTime:       &lotteryResultsList[i].DrawTime,
+			DrawTime:       lotteryResultsList[i].DrawTime,
 			WinningResults: lotteryResultsList[i].WinningResults,
 			OutNumber:      lotteryResultsList[i].OutNumber,
 		}
@@ -49,12 +50,13 @@ func SelectPeriodNumByIsClose(gameCode string) model.LotteryResults {
 	return lotteryResults
 }
 
-func InsertData(gameCode string, periodNum string, outNumber []int, winningResults []string, flag string) {
+func InsertData(gameCode string, modelCode string, periodNum string, outNumber []int, winningResults []string, flag string) {
 	lotteryResults := &model.LotteryResults{
 		Id:             utils.IdWork(),
 		GameCode:       gameCode,
+		ModelCode:      modelCode,
 		PeriodNum:      periodNum,
-		DrawTime:       time.Time{},
+		DrawTime:       time.Now(),
 		OutNumber:      utils.SliceToString(outNumber),
 		WinningResults: utils.SliceToString(winningResults),
 		IsClose:        flag,
@@ -77,4 +79,13 @@ func UpdateLotteryByParams(results model.LotteryResults) int {
 	db := utils.DbHelper
 	affected := db.Model(model.LotteryResults{}).Where("id = ?", results.Id).Update(results).RowsAffected
 	return int(affected)
+}
+
+func GetCurrentPeriod(gameCode string) model.LotteryResults {
+	var lotteryResults model.LotteryResults
+	db := utils.DbHelper
+	db.Model(&model.LotteryResults{}).Order("draw_time desc").
+		Where("game_code = ?", gameCode).Limit(1).
+		Find(&lotteryResults)
+	return lotteryResults
 }

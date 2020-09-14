@@ -1,0 +1,20 @@
+syntax = "proto3";
+package proto;
+import "Models.proto";
+
+//接口请求入参
+message InnerGameInfoRequest{
+  string gameCode = 1;
+  string flag = 2;
+}
+//接口返回出参
+message InnerGameInfoResponse{
+  repeated GameInfoInnerVo gameInfoInnerVo = 1;
+}
+//定义接口
+service InnerGameInfoService{
+  rpc InnerGameInfo(InnerGameInfoRequest) returns (InnerGameInfoResponse){}
+}
+
+
+

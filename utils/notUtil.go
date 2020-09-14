@@ -5,7 +5,7 @@ import (
 	"strings"
 	"time"
 )
-
+//获取期号
 func GetPeriodNum(flag string, periodNum string, gameCode string) string {
 	if "true" == flag {
 		str := time.Now().String()
@@ -29,7 +29,7 @@ func GetPeriodNum(flag string, periodNum string, gameCode string) string {
 		}
 	}
 }
-
+//期号加1
 func AddPeriodNum(periodNum string,gameCode string) string  {
 	num,_ := strconv.Atoi(periodNum[8:len(periodNum)])
 	num++
@@ -58,7 +58,6 @@ func LastIssuePeriodNum(periodNum string,gameCode string) string  {
 	}
 }
 
-
 func getPeriodNumFormat() string {
 	var timeLayoutStr = "2006-01-02"
 	t:=time.Now()
@@ -66,6 +65,7 @@ func getPeriodNumFormat() string {
 	return strings.Replace(str,"-","",-1)[2:len(strings.Replace(str,"-","",-1))]
 }
 
+//切片转string
 func SliceToString(data interface{}) string {
 	var str string
 	if v,ok:=data.([]int);ok{
@@ -94,3 +94,15 @@ func SliceToString(data interface{}) string {
 	return str
 }
 
+//去除重复
+func RemoveDuplicateElement(addrs []string) []string {
+	result := make([]string, 0, len(addrs))
+	temp := map[string]struct{}{}
+	for _, item := range addrs {
+		if _, ok := temp[item]; !ok {
+			temp[item] = struct{}{}
+			result = append(result, item)
+		}
+	}
+	return result
+}

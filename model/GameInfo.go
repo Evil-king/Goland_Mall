@@ -10,11 +10,11 @@ import (
 type GameInfo struct {
 	Id int64  `gorm:"PRIMARY_KEY"` //主键ID
 	GameName string  //游戏名称
-	ModelCode string //模型编码
-	GameCode string  //游戏编码
-	GameStatus string //游戏状态
-	CreateTime time.Time //创建时间
-	ModifyTime time.Time //修改时间
+ModelCode string //模型编码
+GameCode string  //游戏编码
+GameStatus string //游戏状态
+CreateTime time.Time //创建时间
+ModifyTime time.Time //修改时间
 }
 
 //投注项实体
@@ -84,6 +84,7 @@ type LotteryResults struct {
 	Id int64 `gorm:"PRIMARY_KEY"`
 	PeriodNum string
 	GameCode string
+	ModelCode string
 	DrawTime time.Time
 	WinningResults string
 	OutNumber string
@@ -96,12 +97,6 @@ func (lotteryResults LotteryResults) IsEmpty() bool {
 	return reflect.DeepEqual(lotteryResults, LotteryResults{})
 }
 
-type LotteryResultsDto struct {
-	PeriodNum string
-	StartTime string
-	EndTime string
-	CurrentPage int64
-	PageSize int64
-}
+
 
 

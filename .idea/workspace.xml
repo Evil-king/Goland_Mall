@@ -19,16 +19,52 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c180f1d4-716c-473a-8124-051dc552f132" name="Default Changelist" comment="">
+    <list default="true" id="c180f1d4-716c-473a-8124-051dc552f132" name="Default Changelist" comment="update">
+      <change afterPath="$PROJECT_DIR$/common/dto/LotteryResultsDto.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/vo/MarkSIxDataVo.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/vo/ZodiacVo.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dao/gameBettingDao.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dao/gameBettingDao_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dao/markSIxDataDao.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dao/zodiacOddsRelationDao.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/grpc.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/MarkSixData.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/ZodiacOddsRelation.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proto/InnerGameInfo.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proto/Models.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rpcservices/InnerGameInfoInterface.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/GameBettingService.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/GameInfoService.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/GameUtils.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/GameUtils_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/MarkSixDataService.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/PK0Model.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/ZodiacOddsRelationService.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/consul.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/rocketmq.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d768e541-8163-4cbe-b0dd-0dffeb5b55c2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/gameInfoController.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/gameInfoController.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/gameSchedulerController.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/gameSchedulerController.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/lotteryResultsController.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/lotteryResultsController.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dao/gameInfoDao.go" beforeDir="false" afterPath="$PROJECT_DIR$/dao/gameInfoDao.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dao/gameInfoDao_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/dao/gameInfoDao_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dao/gameSchedulerDao.go" beforeDir="false" afterPath="$PROJECT_DIR$/dao/gameSchedulerDao.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dao/lotteryResultsDao.go" beforeDir="false" afterPath="$PROJECT_DIR$/dao/lotteryResultsDao.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dto/GameInfoDto.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/dto/GameInfoDto.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dto/GameSchedulerDto.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/dto/GameSchedulerDto.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/GameInfo.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/GameInfo.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serializer/Result.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/serializer/Response.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/GameSchedulerService.go" beforeDir="false" afterPath="$PROJECT_DIR$/service/GameSchedulerService.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/LotteryResultsService.go" beforeDir="false" afterPath="$PROJECT_DIR$/service/LotteryResultsService.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/uuid.go" beforeDir="false" afterPath="$PROJECT_DIR$/utils/uuid.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vo/GameInfoVo.go" beforeDir="false" afterPath="$PROJECT_DIR$/vo/GameInfoVo.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/LotteryResultsService_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/service/LotteryResultsService_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/db.go" beforeDir="false" afterPath="$PROJECT_DIR$/utils/db.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/notUtil.go" beforeDir="false" afterPath="$PROJECT_DIR$/utils/notUtil.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vo/GameInfoVo.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/vo/GameInfoVo.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,17 +82,7 @@
     <option name="HIDDEN_KINDS">
       <set />
     </option>
-    <expand>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="dev" type="feb32156:DbDataSourceImpl" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="dev" type="feb32156:DbDataSourceImpl" />
-        <item name="game_center: schema" type="76f4a085:MysqlImplModel$Schema" />
-      </path>
-    </expand>
+    <expand />
     <select />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -92,21 +118,25 @@
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="GO_FMT" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/utils" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/common" />
+      <recent name="$PROJECT_DIR$/model" />
       <recent name="$PROJECT_DIR$" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/model" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/utils" />
+      <recent name="$PROJECT_DIR$/dao" />
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
@@ -272,19 +302,74 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
-    <configuration name="go build Goland_Mall" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Go Build.go build Game">
+    <configuration name="go build Game" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="Game" />
       <working_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
       <filePath value="$PROJECT_DIR$/main.go" />
-      <package value="Goland_Mall" />
+      <package value="Game" />
       <directory value="$PROJECT_DIR$/" />
       <method v="2" />
     </configuration>
+    <configuration name="TestGameUtils_CalculationWiningResults in Game/service" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="Game" />
+      <working_directory value="$PROJECT_DIR$/service" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="Game/service" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/" />
+      <pattern value="^TestGameUtils_CalculationWiningResults$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestGameUtils_GetChineseZodiacValue in Game/service" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="Game" />
+      <working_directory value="$PROJECT_DIR$/service" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="Game/service" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/" />
+      <pattern value="^TestGameUtils_GetChineseZodiacValue$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestGameUtils_OperatorWingData in Game/service" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="Game" />
+      <working_directory value="$PROJECT_DIR$/service" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="Game/service" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/" />
+      <pattern value="^TestGameUtils_OperatorWingData$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestInnerGameInfo in Game/dao" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="Game" />
+      <working_directory value="$PROJECT_DIR$/dao" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="Game/dao" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/" />
+      <pattern value="^TestInnerGameInfo$" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Go Build.go build Game" />
+      <item itemvalue="Go Test.TestGameUtils_OperatorWingData in Game/service" />
+      <item itemvalue="Go Test.TestGameUtils_GetChineseZodiacValue in Game/service" />
+      <item itemvalue="Go Test.TestGameUtils_CalculationWiningResults in Game/service" />
+      <item itemvalue="Go Test.TestInnerGameInfo in Game/dao" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Build.go build Goland_Mall" />
+        <item itemvalue="Go Build.go build Game" />
+        <item itemvalue="Go Test.TestInnerGameInfo in Game/dao" />
+        <item itemvalue="Go Test.TestGameUtils_OperatorWingData in Game/service" />
+        <item itemvalue="Go Test.TestGameUtils_CalculationWiningResults in Game/service" />
+        <item itemvalue="Go Test.TestGameUtils_GetChineseZodiacValue in Game/service" />
       </list>
     </recent_temporary>
   </component>
@@ -302,23 +387,97 @@
       <workItem from="1593011459101" duration="1334000" />
       <workItem from="1593310512888" duration="5256000" />
       <workItem from="1593315823499" duration="29214000" />
+      <workItem from="1593486550275" duration="17040000" />
+      <workItem from="1593518268612" duration="11769000" />
+      <workItem from="1594002342192" duration="526000" />
+      <workItem from="1594174913374" duration="597000" />
+      <workItem from="1594347214159" duration="619000" />
+      <workItem from="1595169489192" duration="1315000" />
+      <workItem from="1595322534159" duration="16816000" />
+      <workItem from="1595662959446" duration="995000" />
+      <workItem from="1596074611510" duration="1113000" />
+      <workItem from="1596253445720" duration="684000" />
+      <workItem from="1596257797658" duration="5000" />
+      <workItem from="1597285014882" duration="84000" />
     </task>
+    <task id="LOCAL-00001" summary="update">
+      <created>1593500574116</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1593500574116</updated>
+    </task>
+    <task id="LOCAL-00002" summary="update">
+      <created>1593503546370</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1593503546370</updated>
+    </task>
+    <task id="LOCAL-00003" summary="update">
+      <created>1593503635442</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1593503635442</updated>
+    </task>
+    <task id="LOCAL-00004" summary="update">
+      <created>1593506365569</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1593506365569</updated>
+    </task>
+    <task id="LOCAL-00005" summary="update">
+      <created>1593506954295</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1593506954295</updated>
+    </task>
+    <task id="LOCAL-00006" summary="update">
+      <created>1593508165698</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1593508165698</updated>
+    </task>
+    <task id="LOCAL-00007" summary="update">
+      <created>1593534477641</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1593534477641</updated>
+    </task>
+    <task id="LOCAL-00008" summary="update">
+      <created>1593670173818</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1593670173818</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="1" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -332,46 +491,156 @@
       <screen x="0" y="23" width="2560" height="1349" />
     </state>
     <state x="819" y="431" key="#Inspections/0.23.2560.1349/-1792.282.1792.1097@0.23.2560.1349" timestamp="1593416958963" />
-    <state x="926" y="455" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1593313316457">
-      <screen x="0" y="23" width="2560" height="1349" />
+    <state x="830" y="310" key="#Notifications" timestamp="1600052341769">
+      <screen x="0" y="23" width="2560" height="1370" />
+    </state>
+    <state x="830" y="310" key="#Notifications/0.23.2560.1370/-1792.282.1792.1097@0.23.2560.1370" timestamp="1600052341769" />
+    <state x="926" y="462" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1599117734725">
+      <screen x="0" y="23" width="2560" height="1370" />
     </state>
     <state x="926" y="455" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.2560.1349/-1792.282.1792.1097@0.23.2560.1349" timestamp="1593313316457" />
     <state x="926" y="455" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.2560.1349/-1792.343.1792.1097@0.23.2560.1349" timestamp="1592986853157" />
-    <state width="1615" height="396" key="GridCell.Tab.0.bottom" timestamp="1593446524682">
-      <screen x="0" y="23" width="1792" height="1029" />
+    <state x="926" y="462" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.2560.1370/-1792.282.1792.1097@0.23.2560.1370" timestamp="1599117734725" />
+    <state x="1833" y="298" key="#go_build_Goland_Mall" timestamp="1599117721687">
+      <screen x="0" y="23" width="2560" height="1370" />
     </state>
-    <state width="1615" height="396" key="GridCell.Tab.0.bottom/0.23.1792.1029@0.23.1792.1029" timestamp="1593446524682" />
-    <state width="1615" height="396" key="GridCell.Tab.0.bottom/0.23.2560.1349/-1792.282.1792.1097@0.23.2560.1349" timestamp="1593438818612" />
+    <state x="1833" y="298" key="#go_build_Goland_Mall/0.23.2560.1370/-1792.282.1792.1097@0.23.2560.1370" timestamp="1599117721687" />
+    <state x="830" y="448" key="#xdebugger.evaluate" timestamp="1599363001658">
+      <screen x="0" y="23" width="2560" height="1370" />
+    </state>
+    <state x="830" y="441" key="#xdebugger.evaluate/0.23.2560.1349/-1792.282.1792.1097@0.23.2560.1349" timestamp="1598254672903" />
+    <state x="830" y="448" key="#xdebugger.evaluate/0.23.2560.1370/-1792.282.1792.1097@0.23.2560.1370" timestamp="1599363001658" />
+    <state width="898" height="474" key="DebuggerActiveHint" timestamp="1599362980690">
+      <screen x="0" y="23" width="2560" height="1370" />
+    </state>
+    <state width="898" height="466" key="DebuggerActiveHint/0.23.2560.1349/-1792.282.1792.1097@0.23.2560.1349" timestamp="1598255984286" />
+    <state width="898" height="474" key="DebuggerActiveHint/0.23.2560.1370/-1792.282.1792.1097@0.23.2560.1370" timestamp="1599362980690" />
+    <state width="1669" height="319" key="GridCell.Tab.0.bottom" timestamp="1600080243622">
+      <screen x="0" y="23" width="2560" height="1370" />
+    </state>
+    <state width="1750" height="396" key="GridCell.Tab.0.bottom/0.23.1792.1029@0.23.1792.1029" timestamp="1593530618945" />
+    <state width="1491" height="491" key="GridCell.Tab.0.bottom/0.23.2560.1345/-1792.282.1792.1097@0.23.2560.1345" timestamp="1598258495113" />
+    <state width="1491" height="491" key="GridCell.Tab.0.bottom/0.23.2560.1346/-1792.282.1792.1097@0.23.2560.1346" timestamp="1598411462151" />
+    <state width="1491" height="337" key="GridCell.Tab.0.bottom/0.23.2560.1349/-1792.282.1792.1097@0.23.2560.1349" timestamp="1598257399347" />
     <state width="1750" height="280" key="GridCell.Tab.0.bottom/0.23.2560.1349/-1792.343.1792.1097@0.23.2560.1349" timestamp="1593042379818" />
-    <state width="1615" height="396" key="GridCell.Tab.0.center" timestamp="1593446524681">
-      <screen x="0" y="23" width="1792" height="1029" />
+    <state width="1669" height="319" key="GridCell.Tab.0.bottom/0.23.2560.1370/-1792.282.1792.1097@0.23.2560.1370" timestamp="1600080243622" />
+    <state width="1669" height="319" key="GridCell.Tab.0.center" timestamp="1600080243621">
+      <screen x="0" y="23" width="2560" height="1370" />
     </state>
-    <state width="1615" height="396" key="GridCell.Tab.0.center/0.23.1792.1029@0.23.1792.1029" timestamp="1593446524681" />
-    <state width="1615" height="396" key="GridCell.Tab.0.center/0.23.2560.1349/-1792.282.1792.1097@0.23.2560.1349" timestamp="1593438818611" />
+    <state width="1750" height="396" key="GridCell.Tab.0.center/0.23.1792.1029@0.23.1792.1029" timestamp="1593530618944" />
+    <state width="1491" height="491" key="GridCell.Tab.0.center/0.23.2560.1345/-1792.282.1792.1097@0.23.2560.1345" timestamp="1598258495112" />
+    <state width="1491" height="491" key="GridCell.Tab.0.center/0.23.2560.1346/-1792.282.1792.1097@0.23.2560.1346" timestamp="1598411462151" />
+    <state width="1491" height="337" key="GridCell.Tab.0.center/0.23.2560.1349/-1792.282.1792.1097@0.23.2560.1349" timestamp="1598257399346" />
     <state width="1750" height="280" key="GridCell.Tab.0.center/0.23.2560.1349/-1792.343.1792.1097@0.23.2560.1349" timestamp="1593042379817" />
-    <state width="1615" height="396" key="GridCell.Tab.0.left" timestamp="1593446524680">
-      <screen x="0" y="23" width="1792" height="1029" />
+    <state width="1669" height="319" key="GridCell.Tab.0.center/0.23.2560.1370/-1792.282.1792.1097@0.23.2560.1370" timestamp="1600080243621" />
+    <state width="1669" height="319" key="GridCell.Tab.0.left" timestamp="1600080243621">
+      <screen x="0" y="23" width="2560" height="1370" />
     </state>
-    <state width="1615" height="396" key="GridCell.Tab.0.left/0.23.1792.1029@0.23.1792.1029" timestamp="1593446524680" />
-    <state width="1615" height="396" key="GridCell.Tab.0.left/0.23.2560.1349/-1792.282.1792.1097@0.23.2560.1349" timestamp="1593438818611" />
+    <state width="1750" height="396" key="GridCell.Tab.0.left/0.23.1792.1029@0.23.1792.1029" timestamp="1593530618943" />
+    <state width="1491" height="491" key="GridCell.Tab.0.left/0.23.2560.1345/-1792.282.1792.1097@0.23.2560.1345" timestamp="1598258495111" />
+    <state width="1491" height="491" key="GridCell.Tab.0.left/0.23.2560.1346/-1792.282.1792.1097@0.23.2560.1346" timestamp="1598411462151" />
+    <state width="1491" height="337" key="GridCell.Tab.0.left/0.23.2560.1349/-1792.282.1792.1097@0.23.2560.1349" timestamp="1598257399345" />
     <state width="1750" height="280" key="GridCell.Tab.0.left/0.23.2560.1349/-1792.343.1792.1097@0.23.2560.1349" timestamp="1593042379817" />
-    <state width="1615" height="396" key="GridCell.Tab.0.right" timestamp="1593446524681">
-      <screen x="0" y="23" width="1792" height="1029" />
+    <state width="1669" height="319" key="GridCell.Tab.0.left/0.23.2560.1370/-1792.282.1792.1097@0.23.2560.1370" timestamp="1600080243621" />
+    <state width="1669" height="319" key="GridCell.Tab.0.right" timestamp="1600080243622">
+      <screen x="0" y="23" width="2560" height="1370" />
     </state>
-    <state width="1615" height="396" key="GridCell.Tab.0.right/0.23.1792.1029@0.23.1792.1029" timestamp="1593446524681" />
-    <state width="1615" height="396" key="GridCell.Tab.0.right/0.23.2560.1349/-1792.282.1792.1097@0.23.2560.1349" timestamp="1593438818612" />
+    <state width="1750" height="396" key="GridCell.Tab.0.right/0.23.1792.1029@0.23.1792.1029" timestamp="1593530618944" />
+    <state width="1491" height="491" key="GridCell.Tab.0.right/0.23.2560.1345/-1792.282.1792.1097@0.23.2560.1345" timestamp="1598258495112" />
+    <state width="1491" height="491" key="GridCell.Tab.0.right/0.23.2560.1346/-1792.282.1792.1097@0.23.2560.1346" timestamp="1598411462151" />
+    <state width="1491" height="337" key="GridCell.Tab.0.right/0.23.2560.1349/-1792.282.1792.1097@0.23.2560.1349" timestamp="1598257399346" />
     <state width="1750" height="280" key="GridCell.Tab.0.right/0.23.2560.1349/-1792.343.1792.1097@0.23.2560.1349" timestamp="1593042379818" />
-    <state width="500" height="445" key="SwitcherDM" timestamp="1593357456172">
-      <screen x="0" y="23" width="1792" height="1029" />
+    <state width="1669" height="319" key="GridCell.Tab.0.right/0.23.2560.1370/-1792.282.1792.1097@0.23.2560.1370" timestamp="1600080243622" />
+    <state width="1956" height="304" key="GridCell.Tab.1.bottom" timestamp="1599550259018">
+      <screen x="0" y="23" width="2560" height="1370" />
+    </state>
+    <state width="1491" height="491" key="GridCell.Tab.1.bottom/0.23.2560.1345/-1792.282.1792.1097@0.23.2560.1345" timestamp="1598258495114" />
+    <state width="1491" height="491" key="GridCell.Tab.1.bottom/0.23.2560.1346/-1792.282.1792.1097@0.23.2560.1346" timestamp="1598411462152" />
+    <state width="1491" height="491" key="GridCell.Tab.1.bottom/0.23.2560.1349/-1792.282.1792.1097@0.23.2560.1349" timestamp="1598257345837" />
+    <state width="1956" height="304" key="GridCell.Tab.1.bottom/0.23.2560.1370/-1792.282.1792.1097@0.23.2560.1370" timestamp="1599550259018" />
+    <state width="1956" height="304" key="GridCell.Tab.1.center" timestamp="1599550259018">
+      <screen x="0" y="23" width="2560" height="1370" />
+    </state>
+    <state width="1491" height="491" key="GridCell.Tab.1.center/0.23.2560.1345/-1792.282.1792.1097@0.23.2560.1345" timestamp="1598258495114" />
+    <state width="1491" height="491" key="GridCell.Tab.1.center/0.23.2560.1346/-1792.282.1792.1097@0.23.2560.1346" timestamp="1598411462152" />
+    <state width="1491" height="491" key="GridCell.Tab.1.center/0.23.2560.1349/-1792.282.1792.1097@0.23.2560.1349" timestamp="1598257345837" />
+    <state width="1956" height="304" key="GridCell.Tab.1.center/0.23.2560.1370/-1792.282.1792.1097@0.23.2560.1370" timestamp="1599550259018" />
+    <state width="1956" height="304" key="GridCell.Tab.1.left" timestamp="1599550259017">
+      <screen x="0" y="23" width="2560" height="1370" />
+    </state>
+    <state width="1491" height="491" key="GridCell.Tab.1.left/0.23.2560.1345/-1792.282.1792.1097@0.23.2560.1345" timestamp="1598258495113" />
+    <state width="1491" height="491" key="GridCell.Tab.1.left/0.23.2560.1346/-1792.282.1792.1097@0.23.2560.1346" timestamp="1598411462151" />
+    <state width="1491" height="491" key="GridCell.Tab.1.left/0.23.2560.1349/-1792.282.1792.1097@0.23.2560.1349" timestamp="1598257345837" />
+    <state width="1956" height="304" key="GridCell.Tab.1.left/0.23.2560.1370/-1792.282.1792.1097@0.23.2560.1370" timestamp="1599550259017" />
+    <state width="1956" height="304" key="GridCell.Tab.1.right" timestamp="1599550259018">
+      <screen x="0" y="23" width="2560" height="1370" />
+    </state>
+    <state width="1491" height="491" key="GridCell.Tab.1.right/0.23.2560.1345/-1792.282.1792.1097@0.23.2560.1345" timestamp="1598258495114" />
+    <state width="1491" height="491" key="GridCell.Tab.1.right/0.23.2560.1346/-1792.282.1792.1097@0.23.2560.1346" timestamp="1598411462152" />
+    <state width="1491" height="491" key="GridCell.Tab.1.right/0.23.2560.1349/-1792.282.1792.1097@0.23.2560.1349" timestamp="1598257345837" />
+    <state width="1956" height="304" key="GridCell.Tab.1.right/0.23.2560.1370/-1792.282.1792.1097@0.23.2560.1370" timestamp="1599550259018" />
+    <state x="704" y="449" key="IDE.errors.dialog" timestamp="1599812114086">
+      <screen x="0" y="23" width="2560" height="1370" />
+    </state>
+    <state x="704" y="449" key="IDE.errors.dialog/0.23.2560.1370/-1792.282.1792.1097@0.23.2560.1370" timestamp="1599812114086" />
+    <state x="774" y="217" key="SettingsEditor" timestamp="1599638745976">
+      <screen x="0" y="23" width="2560" height="1370" />
+    </state>
+    <state x="774" y="214" key="SettingsEditor/0.23.2560.1349/-1792.282.1792.1097@0.23.2560.1349" timestamp="1597732245770" />
+    <state x="774" y="217" key="SettingsEditor/0.23.2560.1370/-1792.282.1792.1097@0.23.2560.1370" timestamp="1599638745976" />
+    <state width="715" height="594" key="SwitcherDM" timestamp="1599812181818">
+      <screen x="0" y="23" width="2560" height="1370" />
     </state>
     <state width="500" height="445" key="SwitcherDM/0.23.1792.1029@0.23.1792.1029" timestamp="1593357456172" />
-    <state x="688" y="464" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1593355946378">
-      <screen x="0" y="23" width="1792" height="1029" />
-    </state>
-    <state x="688" y="464" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1792.1029@0.23.1792.1029" timestamp="1593355946378" />
-    <state x="755" y="396" width="670" height="676" key="search.everywhere.popup" timestamp="1593435877429">
+    <state width="715" height="584" key="SwitcherDM/0.23.2560.1349/-1792.282.1792.1097@0.23.2560.1349" timestamp="1598235534059" />
+    <state width="715" height="594" key="SwitcherDM/0.23.2560.1370/-1792.282.1792.1097@0.23.2560.1370" timestamp="1599812181818" />
+    <state x="840" y="475" key="Vcs.Push.Dialog.v2" timestamp="1593670175181">
       <screen x="0" y="23" width="2560" height="1349" />
     </state>
-    <state x="755" y="396" width="670" height="676" key="search.everywhere.popup/0.23.2560.1349/-1792.282.1792.1097@0.23.2560.1349" timestamp="1593435877429" />
+    <state x="588" y="368" key="Vcs.Push.Dialog.v2/0.23.1792.1029@0.23.1792.1029" timestamp="1593534480389" />
+    <state x="840" y="475" key="Vcs.Push.Dialog.v2/0.23.2560.1349/-1792.282.1792.1097@0.23.2560.1349" timestamp="1593670175181" />
+    <state width="580" height="558" key="XDebugger.FullValuePopup" timestamp="1599362937634">
+      <screen x="0" y="23" width="2560" height="1370" />
+    </state>
+    <state width="580" height="549" key="XDebugger.FullValuePopup/0.23.2560.1349/-1792.282.1792.1097@0.23.2560.1349" timestamp="1598152796566" />
+    <state width="580" height="558" key="XDebugger.FullValuePopup/0.23.2560.1370/-1792.282.1792.1097@0.23.2560.1370" timestamp="1599362937634" />
+    <state x="1042" y="567" key="com.intellij.database.actions.ToolActions$ScriptingActionBase$MyDatabaseScriptDialog" timestamp="1593486743748">
+      <screen x="0" y="23" width="2560" height="1349" />
+    </state>
+    <state x="1042" y="567" key="com.intellij.database.actions.ToolActions$ScriptingActionBase$MyDatabaseScriptDialog/0.23.2560.1349/-1792.282.1792.1097@0.23.2560.1349" timestamp="1593486743748" />
+    <state x="688" y="464" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1593448547445">
+      <screen x="0" y="23" width="1792" height="1029" />
+    </state>
+    <state x="688" y="464" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1792.1029@0.23.1792.1029" timestamp="1593448547445" />
+    <state x="1367" y="382" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1597819615899">
+      <screen x="0" y="23" width="2560" height="1349" />
+    </state>
+    <state x="1367" y="382" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.23.2560.1349/-1792.282.1792.1097@0.23.2560.1349" timestamp="1597819615899" />
+    <state x="1220" y="234" width="1001" height="729" key="find.popup" timestamp="1599305822822">
+      <screen x="0" y="23" width="2560" height="1370" />
+    </state>
+    <state x="1220" y="234" width="1001" height="729" key="find.popup/0.23.2560.1370/-1792.282.1792.1097@0.23.2560.1370" timestamp="1599305822822" />
+    <state x="702" y="454" key="new project wizard" timestamp="1593614743528">
+      <screen x="0" y="23" width="2560" height="1349" />
+    </state>
+    <state x="702" y="454" key="new project wizard/0.23.2560.1349/-1792.282.1792.1097@0.23.2560.1349" timestamp="1593614743528" />
+    <state x="1130" y="216" key="refactoring.ChangeSignatureDialog" timestamp="1599303440688">
+      <screen x="0" y="23" width="2560" height="1370" />
+    </state>
+    <state x="1130" y="216" key="refactoring.ChangeSignatureDialog/0.23.2560.1370/-1792.282.1792.1097@0.23.2560.1370" timestamp="1599303440688" />
+    <state x="1264" y="393" width="670" height="687" key="search.everywhere.popup" timestamp="1599305863172">
+      <screen x="0" y="23" width="2560" height="1370" />
+    </state>
+    <state x="755" y="396" width="670" height="676" key="search.everywhere.popup/0.23.2560.1349/-1792.282.1792.1097@0.23.2560.1349" timestamp="1597905490142" />
+    <state x="1264" y="393" width="670" height="687" key="search.everywhere.popup/0.23.2560.1370/-1792.282.1792.1097@0.23.2560.1370" timestamp="1599305863172" />
+    <state x="712" y="535" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1597658553799">
+      <screen x="0" y="23" width="2560" height="1349" />
+    </state>
+    <state x="712" y="535" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.23.2560.1349/-1792.282.1792.1097@0.23.2560.1349" timestamp="1597658553799" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Game$TestGameUtils_GenerateRandomNumber_in_Goland_Mall_service.out" NAME="TestGameUtils_GenerateRandomNumber in Goland_Mall/service Coverage Results" MODIFIED="1597673882127" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="GoCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/Game$TestGameUtils_SliceToString_in_Goland_Mall_service.out" NAME="TestGameUtils_SliceToString in Goland_Mall/service Coverage Results" MODIFIED="1598165862587" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="GoCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/Game$TestGameUtils_OperatorWingData_in_Goland_Mall_service.out" NAME="TestGameUtils_OperatorWingData in Goland_Mall/service Coverage Results" MODIFIED="1598949482139" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="GoCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

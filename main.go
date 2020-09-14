@@ -1,18 +1,28 @@
 package main
 
 import (
-	"Goland_Mall/controller"
+	"Game/controller"
+	"Game/utils"
+	"fmt"
 	"github.com/gin-gonic/gin"
-	"github.com/robfig/cron"
+	ginSwagger "github.com/swaggo/gin-swagger"
+	"github.com/swaggo/gin-swagger/swaggerFiles"
+	"log"
+	"os"
+	"os/signal"
+	"reflect"
+	"syscall"
 )
 
-func main() {
-	//conn := utils.RedisDefaultPool.Get()
-	//result, err:=redis.String(conn.Do("get", "name"))
-	//if err != nil{
-	//	return
+func main1() {
+	//utils.SendMsg("Topic-Test","First to message")
+
+	//res, err := redis.Int64(conn.Do("HGET", "student","age"))
+	//if err != nil {
+	//	fmt.Println("redis HGET error:", err)
+	//} else {
+	//	fmt.Printf("res  : %d \n", res)
 	//}
-	//log.Println(result)
 
 	//ch := make(chan int)
 	//go recv(ch) // 启用goroutine从通道接收值
@@ -46,16 +56,61 @@ func main() {
 	//	fmt.Println(i)
 	//}
 }
-
 //func recv(c chan int) {
 //	ret := <-c
 //	fmt.Println("接收成功", ret)
 //}
 
-func main1() {
-	router := gin.Default()
+func Duplicate(a interface{}) (ret []interface{}) {
+	va := reflect.ValueOf(a)
+	for i := 0; i < va.Len(); i++ {
+		if i > 0 && reflect.DeepEqual(va.Index(i-1).Interface(), va.Index(i).Interface()) {
+			continue
+		}
+		ret = append(ret, va.Index(i).Interface())
+	}
+	return ret
+}
 
+func removeDuplicateElement(addrs []string) []string {
+	result := make([]string, 0, len(addrs))
+	temp := map[string]struct{}{}
+	for _, item := range addrs {
+		if _, ok := temp[item]; !ok {
+			temp[item] = struct{}{}
+			result = append(result, item)
+		}
+	}
+	return result
+}
+
+// @title Swagger Example API
+// @version 1.0
+// @description This is a sample server celler server.
+// @termsOfService https://razeen.me
+
+// @contact.name Razeen
+// @contact.url https://razeen.me
+// @contact.email me@razeen.me
+
+// @license.name Apache 2.0
+// @license.url http://www.apache.org/licenses/LICENSE-2.0.html
+
+// @host 127.0.0.1:8080
+// @BasePath /api/v1
+func main() {
+	GrpcInit()
+	router := gin.Default()
 	router.Use(gin.Recovery())
+	//swagger
+	router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
+
+	//健康检查
+	router.GET("/health", func(context *gin.Context) {
+		context.JSON(200, gin.H{
+			"status": "OK",
+		})
+	})
 
 	v1 := router.Group("/game")
 	{
@@ -83,14 +138,33 @@ func main1() {
 	{
 		//获取游戏计划列表
 		v3.POST("/list", controller.GetLotteryResultList)
+		v3.GET("/getCurrentPeriod", controller.GetCurrentPeriod)
 	}
-	// 定义一个cron运行器
-	c := cron.New()
-	// 定时5秒，每5秒执行print5
-	c.AddFunc("0 0/1 * * * ?", controller.CreatePeriodNum)
-	c.AddFunc("*/12 * * * * ?", controller.DrawOperator)
-	c.Start()
-	select {}
 
-	router.Run(":8000")
+	v4 := router.Group("/timer")
+	{
+		v4.GET("/createPeriodNum",controller.CreatePeriodNum)
+		v4.GET("/drawOperator",controller.DrawOperator)
+	}
+
+	errChan := make(chan error)
+	//启动携程运行启动
+	go func() {
+		utils.RegService() //注册服务
+		err :=router.Run(":8000")
+		if err != nil {
+			log.Panicln(err)
+			errChan <- err
+		}
+	}()
+	//服务优雅的关闭
+	go func() {
+		sig_c := make(chan os.Signal)
+		signal.Notify(sig_c, syscall.SIGINT, syscall.SIGTERM)
+		errChan <- fmt.Errorf("%s", <-sig_c)
+	}()
+	getErr := <-errChan
+	//关闭注册
+	utils.Unregservice()
+	log.Println(getErr)
 }

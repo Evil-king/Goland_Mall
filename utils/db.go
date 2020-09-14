@@ -30,7 +30,8 @@ var (
 //}
 
 func init() {
-	DbHelper, err = gorm.Open("mysql", "root:123456@tcp(127.0.0.1:3306)/game_center?charset=utf8&parseTime=true&loc=Local")
+	//DbHelper, err = gorm.Open("mysql", "root:123456@tcp(127.0.0.1:3306)/game_center?charset=utf8&parseTime=true&loc=Local")
+	DbHelper, err = gorm.Open("mysql", "root:Dev@8888@tcp(192.168.50.100:3306)/game_center?charset=utf8&parseTime=true&loc=Local")
 	if err != nil {
 		log.Fatal(err.Error())
 	}

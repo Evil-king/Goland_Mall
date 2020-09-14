@@ -1,0 +1,43 @@
+syntax="proto3";
+package proto;
+message GameInfoInnerVo{
+  string gameCode = 1;
+  string gameName = 2;
+  string groupName = 3;
+  string mathOdds  = 4;
+  string bettingName = 5;
+  string bettingId = 6;
+  string methodName = 7;
+  string attributes = 8;
+  string lotteryAttributes = 9;
+  string pageAttributes = 10;
+  string sort = 11;
+  string bettingStatus = 12;
+}
+
+message InnerGameInfoDto{
+  string flag = 1;
+  string gameCode = 2;
+}
+
+message BettingMathOddsVo {
+  string bettingId = 1;
+  string mathOdds = 2;
+  string attributes = 3;
+}
+message BettingVo{
+  string bettingId = 1;
+  string mathOdds = 2;
+  string attributes = 3;
+  string bettingStatus = 4;
+  string itemsId = 5;
+  string groupName = 6;
+}
+message SpecialBettingVo{
+  string attributes = 1;
+  string bettingId = 2;
+}
+message MarkSixDataVo{
+  string name = 1;
+  repeated string data = 2; //类似于Java中的 List<String>
+}
