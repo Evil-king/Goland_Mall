@@ -159,7 +159,7 @@ func (p *PK10Model) GetNewLotteryResults(gameCode string, modelCode string) NewR
 	nextPeriodNum := utils.AddPeriodNum(lotteryResults.PeriodNum, gameCode)
 
 	overallTime := int64((gameScheduler.SealTime + gameScheduler.BetTime) * 1000)
-	createTime := gameScheduler.CreateTime.UnixNano() / 1e6
+	createTime := lotteryResults.DrawTime.UnixNano() / 1e6
 	return NewResultVo{
 		WiningResult:  lotteryResults.WinningResults,
 		NextPeriodNum: nextPeriodNum,
@@ -205,7 +205,21 @@ func (p *PK10Model) GetCurrentPeriod(gameCode string, modelCode string) CurrentP
 	if !lotteryResults.IsEmpty() {
 		if "true" == lotteryResults.IsClose &&
 			(("open" == lotteryResults.Status) || "close" == lotteryResults.Status) {
-			endTime = lotteryResults.CreateTime.UnixNano()/1e6 + overallTime
+			endTime = lotteryResults.DrawTime.UnixNano()/1e6 + overallTime
+		} else {
+			return CurrentPeriodVo{
+				PeriodNum: "",
+				EndTime:   0,
+				SealTime:  strconv.Itoa(gameScheduler.SealTime),
+				IsClose:   "false",
+			}
+		}
+	} else {
+		return CurrentPeriodVo{
+			PeriodNum: "",
+			EndTime:   0,
+			SealTime:  strconv.Itoa(gameScheduler.SealTime),
+			IsClose:   "false",
 		}
 	}
 	return CurrentPeriodVo{

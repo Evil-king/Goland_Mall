@@ -20,51 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c180f1d4-716c-473a-8124-051dc552f132" name="Default Changelist" comment="update">
-      <change afterPath="$PROJECT_DIR$/common/dto/LotteryResultsDto.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/vo/MarkSIxDataVo.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/vo/ZodiacVo.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dao/gameBettingDao.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dao/gameBettingDao_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dao/markSIxDataDao.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dao/zodiacOddsRelationDao.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/grpc.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/MarkSixData.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/ZodiacOddsRelation.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/proto/InnerGameInfo.proto" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/proto/Models.proto" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rpcservices/InnerGameInfoInterface.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/GameBettingService.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/GameInfoService.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/GameUtils.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/GameUtils_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/MarkSixDataService.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/PK0Model.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/ZodiacOddsRelationService.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/consul.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/rocketmq.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d768e541-8163-4cbe-b0dd-0dffeb5b55c2.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/gameInfoController.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/gameInfoController.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/gameSchedulerController.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/gameSchedulerController.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/lotteryResultsController.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/lotteryResultsController.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dao/gameInfoDao.go" beforeDir="false" afterPath="$PROJECT_DIR$/dao/gameInfoDao.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dao/gameInfoDao_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/dao/gameInfoDao_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dao/gameSchedulerDao.go" beforeDir="false" afterPath="$PROJECT_DIR$/dao/gameSchedulerDao.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dao/lotteryResultsDao.go" beforeDir="false" afterPath="$PROJECT_DIR$/dao/lotteryResultsDao.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dto/GameInfoDto.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/dto/GameInfoDto.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dto/GameSchedulerDto.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/dto/GameSchedulerDto.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/GameInfo.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/GameInfo.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/serializer/Result.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/serializer/Response.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/GameSchedulerService.go" beforeDir="false" afterPath="$PROJECT_DIR$/service/GameSchedulerService.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/LotteryResultsService.go" beforeDir="false" afterPath="$PROJECT_DIR$/service/LotteryResultsService.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/LotteryResultsService_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/service/LotteryResultsService_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/db.go" beforeDir="false" afterPath="$PROJECT_DIR$/utils/db.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/notUtil.go" beforeDir="false" afterPath="$PROJECT_DIR$/utils/notUtil.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vo/GameInfoVo.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/vo/GameInfoVo.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/PK0Model.go" beforeDir="false" afterPath="$PROJECT_DIR$/service/PK0Model.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -515,7 +472,7 @@
     </state>
     <state width="898" height="466" key="DebuggerActiveHint/0.23.2560.1349/-1792.282.1792.1097@0.23.2560.1349" timestamp="1598255984286" />
     <state width="898" height="474" key="DebuggerActiveHint/0.23.2560.1370/-1792.282.1792.1097@0.23.2560.1370" timestamp="1599362980690" />
-    <state width="1669" height="319" key="GridCell.Tab.0.bottom" timestamp="1600080243622">
+    <state width="1669" height="319" key="GridCell.Tab.0.bottom" timestamp="1600092694100">
       <screen x="0" y="23" width="2560" height="1370" />
     </state>
     <state width="1750" height="396" key="GridCell.Tab.0.bottom/0.23.1792.1029@0.23.1792.1029" timestamp="1593530618945" />
@@ -523,8 +480,8 @@
     <state width="1491" height="491" key="GridCell.Tab.0.bottom/0.23.2560.1346/-1792.282.1792.1097@0.23.2560.1346" timestamp="1598411462151" />
     <state width="1491" height="337" key="GridCell.Tab.0.bottom/0.23.2560.1349/-1792.282.1792.1097@0.23.2560.1349" timestamp="1598257399347" />
     <state width="1750" height="280" key="GridCell.Tab.0.bottom/0.23.2560.1349/-1792.343.1792.1097@0.23.2560.1349" timestamp="1593042379818" />
-    <state width="1669" height="319" key="GridCell.Tab.0.bottom/0.23.2560.1370/-1792.282.1792.1097@0.23.2560.1370" timestamp="1600080243622" />
-    <state width="1669" height="319" key="GridCell.Tab.0.center" timestamp="1600080243621">
+    <state width="1669" height="319" key="GridCell.Tab.0.bottom/0.23.2560.1370/-1792.282.1792.1097@0.23.2560.1370" timestamp="1600092694100" />
+    <state width="1669" height="319" key="GridCell.Tab.0.center" timestamp="1600092694099">
       <screen x="0" y="23" width="2560" height="1370" />
     </state>
     <state width="1750" height="396" key="GridCell.Tab.0.center/0.23.1792.1029@0.23.1792.1029" timestamp="1593530618944" />
@@ -532,8 +489,8 @@
     <state width="1491" height="491" key="GridCell.Tab.0.center/0.23.2560.1346/-1792.282.1792.1097@0.23.2560.1346" timestamp="1598411462151" />
     <state width="1491" height="337" key="GridCell.Tab.0.center/0.23.2560.1349/-1792.282.1792.1097@0.23.2560.1349" timestamp="1598257399346" />
     <state width="1750" height="280" key="GridCell.Tab.0.center/0.23.2560.1349/-1792.343.1792.1097@0.23.2560.1349" timestamp="1593042379817" />
-    <state width="1669" height="319" key="GridCell.Tab.0.center/0.23.2560.1370/-1792.282.1792.1097@0.23.2560.1370" timestamp="1600080243621" />
-    <state width="1669" height="319" key="GridCell.Tab.0.left" timestamp="1600080243621">
+    <state width="1669" height="319" key="GridCell.Tab.0.center/0.23.2560.1370/-1792.282.1792.1097@0.23.2560.1370" timestamp="1600092694099" />
+    <state width="1669" height="319" key="GridCell.Tab.0.left" timestamp="1600092694099">
       <screen x="0" y="23" width="2560" height="1370" />
     </state>
     <state width="1750" height="396" key="GridCell.Tab.0.left/0.23.1792.1029@0.23.1792.1029" timestamp="1593530618943" />
@@ -541,8 +498,8 @@
     <state width="1491" height="491" key="GridCell.Tab.0.left/0.23.2560.1346/-1792.282.1792.1097@0.23.2560.1346" timestamp="1598411462151" />
     <state width="1491" height="337" key="GridCell.Tab.0.left/0.23.2560.1349/-1792.282.1792.1097@0.23.2560.1349" timestamp="1598257399345" />
     <state width="1750" height="280" key="GridCell.Tab.0.left/0.23.2560.1349/-1792.343.1792.1097@0.23.2560.1349" timestamp="1593042379817" />
-    <state width="1669" height="319" key="GridCell.Tab.0.left/0.23.2560.1370/-1792.282.1792.1097@0.23.2560.1370" timestamp="1600080243621" />
-    <state width="1669" height="319" key="GridCell.Tab.0.right" timestamp="1600080243622">
+    <state width="1669" height="319" key="GridCell.Tab.0.left/0.23.2560.1370/-1792.282.1792.1097@0.23.2560.1370" timestamp="1600092694099" />
+    <state width="1669" height="319" key="GridCell.Tab.0.right" timestamp="1600092694100">
       <screen x="0" y="23" width="2560" height="1370" />
     </state>
     <state width="1750" height="396" key="GridCell.Tab.0.right/0.23.1792.1029@0.23.1792.1029" timestamp="1593530618944" />
@@ -550,7 +507,7 @@
     <state width="1491" height="491" key="GridCell.Tab.0.right/0.23.2560.1346/-1792.282.1792.1097@0.23.2560.1346" timestamp="1598411462151" />
     <state width="1491" height="337" key="GridCell.Tab.0.right/0.23.2560.1349/-1792.282.1792.1097@0.23.2560.1349" timestamp="1598257399346" />
     <state width="1750" height="280" key="GridCell.Tab.0.right/0.23.2560.1349/-1792.343.1792.1097@0.23.2560.1349" timestamp="1593042379818" />
-    <state width="1669" height="319" key="GridCell.Tab.0.right/0.23.2560.1370/-1792.282.1792.1097@0.23.2560.1370" timestamp="1600080243622" />
+    <state width="1669" height="319" key="GridCell.Tab.0.right/0.23.2560.1370/-1792.282.1792.1097@0.23.2560.1370" timestamp="1600092694100" />
     <state width="1956" height="304" key="GridCell.Tab.1.bottom" timestamp="1599550259018">
       <screen x="0" y="23" width="2560" height="1370" />
     </state>
@@ -588,12 +545,12 @@
     </state>
     <state x="774" y="214" key="SettingsEditor/0.23.2560.1349/-1792.282.1792.1097@0.23.2560.1349" timestamp="1597732245770" />
     <state x="774" y="217" key="SettingsEditor/0.23.2560.1370/-1792.282.1792.1097@0.23.2560.1370" timestamp="1599638745976" />
-    <state width="715" height="594" key="SwitcherDM" timestamp="1599812181818">
+    <state width="715" height="594" key="SwitcherDM" timestamp="1600674954691">
       <screen x="0" y="23" width="2560" height="1370" />
     </state>
     <state width="500" height="445" key="SwitcherDM/0.23.1792.1029@0.23.1792.1029" timestamp="1593357456172" />
     <state width="715" height="584" key="SwitcherDM/0.23.2560.1349/-1792.282.1792.1097@0.23.2560.1349" timestamp="1598235534059" />
-    <state width="715" height="594" key="SwitcherDM/0.23.2560.1370/-1792.282.1792.1097@0.23.2560.1370" timestamp="1599812181818" />
+    <state width="715" height="594" key="SwitcherDM/0.23.2560.1370/-1792.282.1792.1097@0.23.2560.1370" timestamp="1600674954691" />
     <state x="840" y="475" key="Vcs.Push.Dialog.v2" timestamp="1593670175181">
       <screen x="0" y="23" width="2560" height="1349" />
     </state>
